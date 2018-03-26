@@ -25,11 +25,12 @@ public class CircularLinkedList {
     public boolean isEmpty(){
         return last.getNext() == null;
     }
-    public void insertFirst(){}
-    public void insertLast(){
-        if(size == 0){
+    public void insertFirst(){
+    if(size == 0){
             last = new Node();
         }
+    }
+    public void insertLast(){
     }
     public void getNext(){}
     public void kTraverse(int num){}
