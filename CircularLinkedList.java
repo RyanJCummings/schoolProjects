@@ -10,19 +10,28 @@ package outlab4;
  * @author ryancummings
  */
 public class CircularLinkedList {
-    Node first;
     Node last;
+    private int size = 0;
     
-    public CircularLinkedList(){
-        first = null;
+    public CircularLinkedList(int listSize, int clockwise, int counterclock){
+        int n = listSize;
+        int k = n % clockwise;
+        int m = n % counterclock;
         last = null;   
-        int size = 0;
+    }
+    public int getSize(){
+        return size;
     }
     public boolean isEmpty(){
-        return first == null;
+        return last.getNext() == null;
     }
     public void insertFirst(){}
-    public void insertLast(){}
+    public void insertLast(){
+        if(size == 0){
+            last = new Node();
+        }
+    }
+    public void getNext(){}
     public void kTraverse(int num){}
     public void mTraverse(int num){}
 }

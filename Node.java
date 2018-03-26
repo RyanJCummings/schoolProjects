@@ -11,9 +11,7 @@ package outlab4;
  */
 public class Node {
     private int num;
-    private Node next;
-    private Node previous;
-    
+    private Node next, previous;
     
     public Node(){}
     public Node(int number){
@@ -30,5 +28,8 @@ public class Node {
     }
     public Node getPrevious(){
         return previous;
+    }
+    public int getData(){
+        return num;
     }
 }
