@@ -16,6 +16,8 @@ public class Node {
     public Node(){}
     public Node(int number){
          num = number;
+         System.out.println(this.getData());
+         
     }
     public void setNext(Node temp){
         next = temp;

@@ -29,11 +29,12 @@ public class Outlab4 {
        }
        while(fileIn.hasNextLine()){
            String x = fileIn.nextLine();
-           String [] words = x.split(",");
+           String [] words = x.split(" ");
            int N = Integer.parseInt(words[0]);
            int k = Integer.parseInt(words[1]);
            int m = Integer.parseInt(words[2]);
            CircularLinkedList poliList = new CircularLinkedList(N, k, m);
+           //System.out.println(last.getData());
            
            /*for(int i = 0; i < words.length; i++){
                System.out.println(words[i]);
