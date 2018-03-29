@@ -15,9 +15,6 @@ import java.util.Scanner;
  */
 public class Outlab4 {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         Node k;
         Node m;
@@ -36,27 +33,25 @@ public class Outlab4 {
             int N = Integer.parseInt(words[0]);
             int cw = Integer.parseInt(words[1]);
             int cc = Integer.parseInt(words[2]);
-            CircularLinkedList poliList = new CircularLinkedList(N, cw, cc);
 
-                // while (poliList != null) {
-                k = poliList.kTraverse(cw);
-                m = poliList.mTraverse(cc);
+            if (N == 0) {
+                break;
 
-                System.out.println(k.getData());
-                System.out.println(m.getData());
-            
-            if (k.getData() != m.getData()) {
-                poliList.delete(k);
-                poliList.delete(m);
+            } else {
+                CircularLinkedList poliList = new CircularLinkedList(N, cw, cc);
+              
+                while (poliList.isEmpty() == false) {
+                    k = poliList.kTraverse(cw);
+                    m = poliList.mTraverse(cc);
+                    System.out.println("printing after round of deletion");
+                    poliList.printList();
+                    poliList.delete(k);
+                    poliList.delete(m);
+                }
+
             }
-            //}
-            //System.out.println(last.getData());
 
-            /*for(int i = 0; i < words.length; i++){
-               System.out.println(words[i]);
-           }*/
         }
 
     }
-
 }

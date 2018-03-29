@@ -11,10 +11,10 @@ package outlab4;
  */
 public class CircularLinkedList {
 
-    Node k;
-    Node m;
     Node first;
     Node last;
+    Node k;
+    Node m;
     private int size = 0;
 
     public CircularLinkedList(int listSize, int cw, int cc) {
@@ -23,7 +23,7 @@ public class CircularLinkedList {
         int counterclock = cc;
         last = null;
         first = null;
-        
+
         for (int i = 1; i <= listSize; i++) {
             insert(i);
         }
@@ -32,16 +32,25 @@ public class CircularLinkedList {
     public int getSize() {
         return size;
     }
-    
-    public Node getFirst(){
+
+    public Node getLast() {
+        return last;
+    }
+
+    public void setLast(Node temp) {
+        last = temp;
+    }
+
+    public Node getFirst() {
         return first;
     }
-    
-    public void setFirst(Node temp){
+
+    public void setFirst(Node temp) {
         first = temp;
     }
+
     public boolean isEmpty() {
-        return last.getNext() == null;
+        return last == null;
     }
 
     public void insert(int data) {
@@ -50,42 +59,74 @@ public class CircularLinkedList {
             last.setNext(last);
             last.setPrevious(last);
             first = last;
-            
-        }
-        else{
+
+        } else {
             Node temp = new Node(data); //creates temporary node
+            temp.setNext(first);
             last.setNext(temp); // moves next pointer to temp node
             temp.setPrevious(last); //sets new node's previous to last
             //first.setPrevious(temp);
             last = last.getNext(); //moves last pointer to new node
             first.setPrevious(last); // sets first's prev pointer to last
-            
+            k = first;
+            m = last;
         }
     }
-    public void delete(Node whichNode){
-        if (isEmpty() == true){}    
-        else{
-            //whichNode = whichNode.getPrevious();
+
+    public void delete(Node whichNode) {
+        System.out.println("THis is k: " + k.getData());
+        System.out.println("THis is m: " + m.getData());
+        if (isEmpty() == true) {
+            System.out.println("The list is empty.");
+        } else if (last == first) {
+            k = null;
+            m = null;
+            last = null;
+            first = null;
+        } else {
+            if (whichNode == k) {
+                k = k.getNext();
+            }
+            if (whichNode == m) {
+                System.out.println("Trying to move m: " + m.getPrevious().getData());
+                m = m.getPrevious();
+            }
+            if (whichNode == last) {
+                last = last.getPrevious();
+                last.setNext(first);
+            }
+            if (whichNode == first) {
+                first = first.getNext();
+            }
             whichNode.getPrevious().setNext(whichNode.getNext());
-            System.out.println(whichNode.getData());
+            whichNode.getNext().setPrevious(whichNode.getPrevious());
+
         }
     }
-    
+
     public Node kTraverse(int kNum) {
-        /*k.setPrevious(last);
-        k.setNext(first.getNext());*/
-        k = first;
-        for (int i = 0; i < kNum; i++) {
+        for (int i = 1; i < kNum; i++) {
             k = k.getNext();
         }
+        System.out.println("print from kTraverse" + k.getData());
         return k;
     }
 
     public Node mTraverse(int mNum) {
-        m = first;
-        for (int i = 0; i < mNum; i++) {
-            m = m.getPrevious();  
+        for (int i = 1; i < mNum; i++) {
+            m = m.getPrevious();
         }
+        System.out.println("print from mTraverse" + m.getData());
         return m;
+    }
+
+    public void printList() {
+        Node current = new Node();
+        current = first;
+        do {
+            System.out.println(current.getData());
+            current = current.getNext();
+        } while (current != first);
+
     }
 }
