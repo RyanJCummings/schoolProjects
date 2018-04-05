@@ -11,10 +11,8 @@ package pkg132lab5;
  */
 public class Outlab5 {
 
-   
-
     public static void main(String[] args) {
         Maze myMaze = new Maze();
-        myMaze.printMaze();
+        myMaze.traverse(myMaze.map, 0, 2, 0, 3);
     }
 }
