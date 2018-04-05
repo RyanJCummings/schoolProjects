@@ -45,7 +45,23 @@ class Maze {
             return 1;
         }
         else if (theMaze[handLocationY][handLocationX] == '#'){
-            
+            if(handLocationY < yLoc){  //detects East, turns north
+                handLocationY++;
+                handLocationX++;
+            }
+            if(handLocationY > yLoc){  //detects West, turns South
+                handLocationY--;
+                handLocationX--;
+            }
+            if(handLocationX > xLoc){  //detects North turns West
+                handLocationY++;
+                handLocationX--;
+            }
+            if(handLocationX < xLoc){  //detects South, turns North
+                handLocationY--;
+                handLocationX++;
+            }
+            handLocationY = handLocationY++;
             return traverse(theMaze, xLoc, yLoc, handLocationX, handLocationY);
         }
         else
