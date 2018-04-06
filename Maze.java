@@ -52,20 +52,20 @@ class Maze {
         } else if (handLocationY > yLoc) {
             System.out.println(handLocationX + ", " + handLocationY);
             // right hand on a wall and the path forward is blocked by a wall
-            if (theMaze[handLocationY][handLocationX] == '#' && theMaze[xLoc][yLoc] == '#') { 
+            if (theMaze[handLocationY][handLocationX] == '#' && theMaze[yLoc][xLoc] == '#') { 
                 // turns North 
                 handLocationY--;
                 handLocationX++;
                
             // right hand on wall and path forward is clear
-            } else if (theMaze[handLocationY][handLocationX] == '#' && (theMaze[xLoc][yLoc] == '.' || theMaze[xLoc][yLoc] == 'X')) {
+            } else if (theMaze[handLocationY][handLocationX] == '#' && (theMaze[yLoc][xLoc] == '.' || theMaze[yLoc][xLoc] == 'X')) {
                 // places X and advances one step
                 theMaze[yLoc][xLoc] = 'X';
                 xLoc++;
                 printMaze();
             
             // right hand on a clear path: turn right and advance one step
-            }else if (theMaze[handLocationY][handLocationX] == '.' || theMaze[xLoc][yLoc] == 'X'){ 
+            }else if (theMaze[handLocationY][handLocationX] == '.' || theMaze[yLoc][xLoc] == 'X'){ 
                 theMaze[yLoc][xLoc] = 'X';
                 handLocationY++;
                 handLocationX--;
@@ -80,13 +80,13 @@ class Maze {
         // if facing West
         }else if (handLocationY < yLoc){
             // right hand on a wall and the path forward is blocked   
-            if (theMaze[handLocationY][handLocationX] == '#' && theMaze[xLoc][yLoc] == '#') { 
+            if (theMaze[handLocationY][handLocationX] == '#' && theMaze[yLoc][xLoc] == '#') { 
                 // turns South
                 handLocationY++;
                 handLocationX--; 
                 
             // right hand on wall and path forward is clear            
-            } else if (theMaze[handLocationY][handLocationX] == '#' && (theMaze[xLoc][yLoc] == '.' || theMaze[xLoc][yLoc] == 'X')) {
+            } else if (theMaze[handLocationY][handLocationX] == '#' && (theMaze[yLoc][xLoc] == '.' || theMaze[yLoc][xLoc] == 'X')) {
                 // places X and advances one step
                 theMaze[yLoc][xLoc] = 'X';
                 xLoc--;
@@ -94,7 +94,7 @@ class Maze {
             
              
              // right hand on clear path: turn right and advance one step
-             }else if (theMaze[handLocationY][handLocationX] == '.' || theMaze[xLoc][yLoc] == 'X'){ 
+             }else if (theMaze[handLocationY][handLocationX] == '.' || theMaze[yLoc][xLoc] == 'X'){ 
                 theMaze[yLoc][xLoc] = 'X';
                 handLocationY--;
                 handLocationX++;
@@ -108,20 +108,20 @@ class Maze {
         // if facing North
         }else if (handLocationX > xLoc){
             // right hand on a wall and the path forward is blocked
-            if (theMaze[handLocationY][handLocationX] == '#' && theMaze[xLoc][yLoc] == '#') { 
+            if (theMaze[handLocationY][handLocationX] == '#' && theMaze[yLoc][xLoc] == '#') { 
                 // turn West
                 handLocationY--;
                 handLocationX--;
                 
             // right hand on a wall and the path forward is clear
-            }else if (theMaze[handLocationY][handLocationX] == '#' && (theMaze[xLoc][yLoc] == '.' || theMaze[xLoc][yLoc] == 'X')){
+            }else if (theMaze[handLocationY][handLocationX] == '#' && (theMaze[yLoc][xLoc] == '.' || theMaze[yLoc][xLoc] == 'X')){
                 // places X and advances one step
                 theMaze[yLoc][xLoc] = 'X';
                 yLoc--;
                 printMaze();
             
                  // right hand on a clear path: turn right and advance one step
-            }else if (theMaze[handLocationY][handLocationX] == '.' || theMaze[xLoc][yLoc] == 'X'){ 
+            }else if (theMaze[handLocationY][handLocationX] == '.' || theMaze[yLoc][xLoc] == 'X'){ 
                 theMaze[yLoc][xLoc] = 'X';
                 handLocationY++;
                 handLocationX++;
@@ -135,13 +135,13 @@ class Maze {
         // if facing South
         }else if (handLocationX < xLoc){
             // right hand on a wall and the path forward is blocked
-            if (theMaze[handLocationY][handLocationX] == '#' && theMaze[xLoc][yLoc] == '#') { 
+            if (theMaze[handLocationY][handLocationX] == '#' && theMaze[yLoc][xLoc] == '#') { 
                 // turns East 
                 handLocationY++;
                 handLocationX++;
                 
             // right hand on a wall and the path forward is clear
-            }else if (theMaze[handLocationY][handLocationX] == '#' && (theMaze[xLoc][yLoc] == '.' || theMaze[xLoc][yLoc] == 'X')){
+            }else if (theMaze[handLocationY][handLocationX] == '#' && (theMaze[yLoc][xLoc] == '.' || theMaze[yLoc][xLoc] == 'X')){
                 // places X and advances one step
                 theMaze[yLoc][xLoc] = 'X';
                 yLoc++;
@@ -149,7 +149,7 @@ class Maze {
                 //return traverse(theMaze, xLoc, yLoc, handLocationX, handLocationY);
                 
              // right hand on a clear path: turn right and advance one step
-            }else if (theMaze[handLocationY][handLocationX] == '.' || theMaze[xLoc][yLoc] == 'X'){ 
+            }else if (theMaze[handLocationY][handLocationX] == '.' || theMaze[yLoc][xLoc] == 'X'){ 
                 theMaze[yLoc][xLoc] = 'X';
                 handLocationY--;
                 handLocationX--;
