@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This class creates and traverses a maze using a recursive algorithm.
  */
 package pkg132lab5;
 
@@ -60,16 +58,25 @@ class Maze {
                 handLocationX++;
                
             // right hand on wall and path forward is clear
-            } else if (theMaze[handLocationY][handLocationX] == '#' && theMaze[xLoc][yLoc] == '.') {
+            } else if (theMaze[handLocationY][handLocationX] == '#' && (theMaze[xLoc][yLoc] == '.' || theMaze[xLoc][yLoc] == 'X')) {
                 // places X and advances one step
                 theMaze[yLoc][xLoc] = 'X';
                 xLoc++;
+                printMaze();
+            
+            // right hand on a clear path: turn right and advance one step
+            }else if (theMaze[handLocationY][handLocationX] == '.' || theMaze[xLoc][yLoc] == 'X'){ 
+                theMaze[yLoc][xLoc] = 'X';
+                handLocationY++;
+                handLocationX--;
+                yLoc++;
                 printMaze();
                 
             }else{
                 System.out.println("Something went wrong while facing East");
                 return 0;
             }
+            
         // if facing West
         }else if (handLocationY < yLoc){
             // right hand on a wall and the path forward is blocked   
@@ -79,12 +86,21 @@ class Maze {
                 handLocationX--; 
                 
             // right hand on wall and path forward is clear            
-            } else if (theMaze[handLocationY][handLocationX] == '#' && theMaze[xLoc][yLoc] == '.') {
+            } else if (theMaze[handLocationY][handLocationX] == '#' && (theMaze[xLoc][yLoc] == '.' || theMaze[xLoc][yLoc] == 'X')) {
                 // places X and advances one step
                 theMaze[yLoc][xLoc] = 'X';
                 xLoc--;
                 printMaze();
-               
+            
+             
+             // right hand on clear path: turn right and advance one step
+             }else if (theMaze[handLocationY][handLocationX] == '.' || theMaze[xLoc][yLoc] == 'X'){ 
+                theMaze[yLoc][xLoc] = 'X';
+                handLocationY--;
+                handLocationX++;
+                yLoc--;
+                printMaze();
+                
             }else
                 System.out.println("Something went wrong while facing West");
                 return 0;
@@ -98,13 +114,22 @@ class Maze {
                 handLocationX--;
                 
             // right hand on a wall and the path forward is clear
-            }else if (theMaze[handLocationY][handLocationX] == '#' && theMaze[xLoc][yLoc] == '.'){
+            }else if (theMaze[handLocationY][handLocationX] == '#' && (theMaze[xLoc][yLoc] == '.' || theMaze[xLoc][yLoc] == 'X')){
                 // places X and advances one step
                 theMaze[yLoc][xLoc] = 'X';
                 yLoc--;
                 printMaze();
+            
+                 // right hand on a clear path: turn right and advance one step
+            }else if (theMaze[handLocationY][handLocationX] == '.' || theMaze[xLoc][yLoc] == 'X'){ 
+                theMaze[yLoc][xLoc] = 'X';
+                handLocationY++;
+                handLocationX++;
+                xLoc++;
+                printMaze();
                 
             }else 
+                System.out.println("Something went wrong facing North");
                 return 0;
             
         // if facing South
@@ -116,13 +141,23 @@ class Maze {
                 handLocationX++;
                 
             // right hand on a wall and the path forward is clear
-            }else if (theMaze[handLocationY][handLocationX] == '#' && theMaze[xLoc][yLoc] == '.'){
+            }else if (theMaze[handLocationY][handLocationX] == '#' && (theMaze[xLoc][yLoc] == '.' || theMaze[xLoc][yLoc] == 'X')){
                 // places X and advances one step
                 theMaze[yLoc][xLoc] = 'X';
                 yLoc++;
                 printMaze();
                 //return traverse(theMaze, xLoc, yLoc, handLocationX, handLocationY);
+                
+             // right hand on a clear path: turn right and advance one step
+            }else if (theMaze[handLocationY][handLocationX] == '.' || theMaze[xLoc][yLoc] == 'X'){ 
+                theMaze[yLoc][xLoc] = 'X';
+                handLocationY--;
+                handLocationX--;
+                xLoc--;
+                printMaze();
+                
             }else
+                System.out.println("Something went wrong facing South");
                 return 0;
         }
         return traverse(theMaze, xLoc, yLoc, handLocationX, handLocationY);  
