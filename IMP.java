@@ -269,6 +269,20 @@ class IMP implements MouseListener{
      */
     private void fun2()
     {
+        PixelRegion region = new PixelRegion(colorX, colorY);
+        Stack<PixelRegion> regionStack = new Stack<>();
+        regionStack.push(region);
+        while(!regionStack.empty()){
+            PixelRegion current = regionStack.pop();
+            int [] positions = new int[2];
+            for (int i = -1; i < 2; i++) {
+                for (int j = -1; j < 2; j++) {
+                    positions = {region.x + i, region.y + j};
+                    if ()
+                }
+            }
+
+        }
     }
 
 
