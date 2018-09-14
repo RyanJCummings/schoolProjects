@@ -44,14 +44,11 @@ double getTaxRate(void){
 /* calculates 5-year cost */
 double calculate(double cost, double fuel, double tax){
 
-    double oneYearTax;
-    double totalFiveYearCost;
-
     // obtain cost of taxes for one year
-    oneYearTax = cost * tax;
+    double oneYearTax = cost * tax;
 
     // calculate total five-year cost
-    totalFiveYearCost = ((cost + (5 * fuel)) + (5 * oneYearTax));
+    double totalFiveYearCost = ((cost + (5 * fuel)) + (5 * oneYearTax));
     printf("Total Cost: %1.2lf\n", totalFiveYearCost);
 
     return totalFiveYearCost;
