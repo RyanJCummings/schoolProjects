@@ -8,46 +8,62 @@
 
 #include <stdio.h>
 
-double initialCost;
-double fuelCost;
-double taxRate;
+/* gets initial cost from the user */
+double getInitialCost(void){
 
-// gets user input
-void input(void){
-    
-    //get price of house
+    double initialCost;
+
     printf("Please enter the price of the house: ");
     scanf("%lf", &initialCost);
 
-    // get fuel cost
+    return initialCost;
+}
+
+/* gets cost of fuel from the user */
+double getFuelCost(void){
+
+    double fuelCost;
+
     printf("Please enter the fuel cost for one year: ");
     scanf("%lf", &fuelCost);
 
-    //get tax rate
+    return fuelCost;
+}
+
+/* gets tax rate from user */
+double getTaxRate(void){
+
+    double taxRate;
+
     printf("Please enter the tax rate in decimal: ");
     scanf("%lf", &taxRate);
 
-    return;
+    return taxRate;
 }
 
-// calculates 5-year cost
-double calculate(void){
+/* calculates 5-year cost */
+double calculate(double cost, double fuel, double tax){
+
     double oneYearTax;
     double totalFiveYearCost;
 
-    // obtain cost of taxes
-    oneYearTax = initialCost * taxRate;
+    // obtain cost of taxes for one year
+    oneYearTax = cost * tax;
 
     // calculate total five-year cost
-    totalFiveYearCost = ((initialCost + (5 * fuelCost)) + (5 * oneYearTax));
+    totalFiveYearCost = ((cost + (5 * fuel)) + (5 * oneYearTax));
     printf("Total Cost: %1.2lf\n", totalFiveYearCost);
 
     return totalFiveYearCost;
 }
 
 int main (void) {
-    input();
-    calculate();
+
+    double cost = getInitialCost();
+    double fuel = getFuelCost();
+    double tax = getTaxRate();
+
+    calculate(cost, fuel, tax);
 
     return 0;  // exit with no errors
 }
