@@ -2,9 +2,8 @@ public class TreeManager<E extends Comparable> {
 
     private Node<E> rootNode;
 
-    /*
-     * Constructor for Binary Search Tree without balancing on node removal
-     */
+
+     /* Constructor for Binary Search Tree without balancing on node removal */
     public TreeManager() {
         rootNode = null;
     }
@@ -13,9 +12,7 @@ public class TreeManager<E extends Comparable> {
         rootNode = addNode(rootNode, firstNode);
     }
 
-    /*
-     * Adds node in proper position to maintain Binary Search Tree
-     */
+    /* Adds node in proper position to maintain Binary Search Tree */
     public Node<E> addNode(Node<E> rootNode, Node<E> newNode) {
         if (rootNode == null) {
             rootNode = newNode;
