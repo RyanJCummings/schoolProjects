@@ -1,14 +1,12 @@
 public class TreeManager<E extends Comparable> {
 
-    private Node<E> rootNode, treeRoot;
+    private Node<E> rootNode;
 
     /*
      * Constructor for Binary Search Tree without balancing on node removal
      */
     public TreeManager() {
         rootNode = null;
-        //rootNode = rootNode;
-        // Node<E> current_root = rootNode;
     }
 
     public void addFirst(Node<E> firstNode) {
@@ -46,11 +44,11 @@ public class TreeManager<E extends Comparable> {
         return rootNode;
     }
 
-
+    // stores root of the tree and calls removeNode
     public void delete(Node<E> deleteNode){
           rootNode = removeNode(rootNode, deleteNode);
     }
-
+    // recursive method to identify and delete node to be removed
     public Node<E> removeNode(Node<E> rootNode, Node<E> killNode) {
         // base case : Tree is empty
         if (rootNode == null){
@@ -87,13 +85,15 @@ public class TreeManager<E extends Comparable> {
         }
         return rootNode;
     }
-
+    // gets minimum valued node
     public Node<E> getMin(Node<E> node){
         if (node.getLeft() != null){
             return getMin(node.getLeft());
         }
         return node;
     }
+
+    /* Traversal methods */
 
     public void inOrder(Node<E> node) {
         if (node == null) {
