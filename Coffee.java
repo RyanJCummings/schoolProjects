@@ -11,34 +11,35 @@ public class Coffee implements Comparable {
         this.distributor = distributor;
     }
 
-    /*
-     * Compares attributes of two Coffee Nodes and returns either -1 or 0.
-     */
+
+    /* Compares attributes of two Coffee Nodes and returns either -1 or 0. */
     @Override
-    public int compareTo(Object coffee) {
+    public int compareTo(Object coffee){
         Coffee other_coffee = (Coffee) coffee;
-        if (this.price < other_coffee.price) {
+        if (this.price < other_coffee.price){
             return -1;
         }
-        else if (this.price == other_coffee.price) {
-            if (color.compareTo(other_coffee.color) < 0) {
+        else if (this.price == other_coffee.price){
+            if (distributor.compareTo(other_coffee.distributor) < 0){
                 return -1;
             }
-            else if (color.compareTo(other_coffee.color) == 0) {
-                if (distributor.compareTo(other_coffee.distributor) < 0) {
+            else if (distributor.compareTo(other_coffee.distributor) == 0){
+                if (color.compareTo(other_coffee.color) < 0){
                     return -1;
                 }
-                else return 0;
+                else if (color.compareTo(other_coffee.color) == 0) {
+                    return 0;
+                }
+                else return 1;
             }
-            else return 0;
+            else return 1;
         }
-        else return 0;
+        else return 1;
     }
 
-    /*
-     *  Replaces System.out.println() to show data contained in Coffee Nodes rather than memory locations.
-     */
+
+     /* Overrides toString() to show data contained in Coffee Nodes rather than memory locations. */
     public String toString(){
-        return "Price: " + price + "\n" + "Color: " + color + "\n" + "Company/Distributer: " + distributor + "\n";
+        return "Price: " + price + "\n" + "Color: " + color + "\n" + "Company/Distributer: " + distributor + "\n\n";
     }
 }

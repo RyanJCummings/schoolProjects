@@ -2,26 +2,31 @@ public class Driver {
 
     public static void main(String[] Argv){
        TreeManager<Coffee> tree = new TreeManager<>();
-       Node temp = new Node<>(new Coffee(12.00, "brown", "Folgers"));
-       Node temp2 = new Node<>(new Coffee(11.00, "Tan", "Starbucks"));
-       Node temp3 = new Node<>(new Coffee( 9.00, "dark", "City Brew"));
-       tree.addFirst(temp);
-       tree.addFirst(temp2);
-       tree.addFirst(temp3);
+       Node test = new Node<>(new Coffee(12.00, "brown", "Folgers"));
+       Node test2 = new Node<>(new Coffee(13.00, "Tan", "Starbucks"));
+       Node test3 = new Node<>(new Coffee( 14.00, "dark", "City Brew"));
+       Node test4 = new Node<>(new Coffee(10.00, "medium", "Hunter's Zesty Coffee"));
+       Node test5 = new Node<>(new Coffee(8.00, "medium", "Hunter's Zesty Coffee"));
+       Node test6 = new Node<>(new Coffee(10.00, "medium", "Hunter's Zesty Coffee"));
+       Node test7 = new Node<>(new Coffee(18.00, "black", "Kopi Luac"));
 
-       tree.preOrder(temp);
-       //tree.preOrder(temp2);
-       //tree.preOrder(temp3);
+       tree.addFirst(test);
+       tree.addFirst(test2);
+       tree.addFirst(test3);
+       tree.addFirst(test4);
+       tree.addFirst(test5);
+       tree.addFirst(test6);
+       tree.addFirst(test7);
 
-      /* tree.postOrder(temp);
-       tree.postOrder(temp2);
-       tree.postOrder(temp3);
+       System.out.println("PreOrder Traversal:");
+       tree.preOrder(test);
+       System.out.println("InOrder Traversal:");
+       tree.inOrder(test);
+       System.out.println("PostOrder Traversal:");
+       tree.postOrder(test);
 
-       tree.inOrder(temp);
-       tree.inOrder(temp2);
-       tree.inOrder(temp3);*/
-
-      tree.delete(temp3);
-      tree.preOrder(temp);
+       tree.delete(test4);
+       tree.delete(test);
+       tree.inOrder(test);
     }
 }

@@ -32,7 +32,7 @@ public class TreeManager<E extends Comparable> {
         // if new node > root node, recurse right
         else if (newNode.getData().compareTo(rootNode.getData()) > 0) {
             if (rootNode.getRight() == null) {
-                rootNode.setLeft(newNode);
+                rootNode.setRight(newNode);
             } else {
                 addNode(rootNode.getRight(), newNode);
             }
