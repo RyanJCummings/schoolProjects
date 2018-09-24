@@ -21,5 +21,7 @@ public class Driver {
        tree.inOrder(temp2);
        tree.inOrder(temp3);*/
 
+      tree.delete(temp3);
+      tree.preOrder(temp);
     }
 }

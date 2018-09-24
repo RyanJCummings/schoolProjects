@@ -47,8 +47,52 @@ public class TreeManager<E extends Comparable> {
     }
 
 
-    public void removeNode(Node<E> killNode) {
-        // to do
+    public void delete(Node<E> deleteNode){
+          rootNode = removeNode(rootNode, deleteNode);
+    }
+
+    public Node<E> removeNode(Node<E> rootNode, Node<E> killNode) {
+        // base case : Tree is empty
+        if (rootNode == null){
+            return rootNode;
+        }
+        // if killNode.getData < rootNode.getData() recur down left side of tree
+        if (killNode.getData().compareTo(rootNode.getData()) < 0){
+            rootNode.setLeft(removeNode(rootNode.getLeft(), killNode));
+        }
+        // if killNode.getData() > rootNode.getData() recur down right side of tree
+         else if (killNode.getData().compareTo(rootNode.getData()) > 0) {
+            rootNode.setRight(removeNode(rootNode.getRight(), killNode));
+        }
+        // once killNode data has been found delete node
+        else {
+            // if killNode has neither left nor right child
+            if (rootNode.getLeft() == null && rootNode.getRight() == null){
+                return null;
+            }
+            // if killNode has right child but no left child
+            else if (rootNode.getLeft() == null){
+                return rootNode.getRight();
+            }
+            // if killNode has left child but no right child
+            else if (rootNode.getRight() == null){
+                return rootNode.getLeft();
+            }
+            // if killNode has both left and right children
+            else {
+                Node<E> min = getMin(rootNode.getRight());
+                rootNode.setData(min.getData());
+                rootNode.setRight(removeNode(rootNode.getRight(), min));
+            }
+        }
+        return rootNode;
+    }
+
+    public Node<E> getMin(Node<E> node){
+        if (node.getLeft() != null){
+            return getMin(node.getLeft());
+        }
+        return node;
     }
 
     public void inOrder(Node<E> node) {
