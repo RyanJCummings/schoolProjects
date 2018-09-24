@@ -25,19 +25,17 @@ public class TreeManager<E extends Comparable> {
         }
         // if new node < root node, recurse left
         else if (newNode.getData().compareTo(rootNode.getData()) < 0) {
-            if (rootNode.getLeft() == null){
+            if (rootNode.getLeft() == null) {
                 rootNode.setLeft(newNode);
-            }
-            else {
+            } else {
                 addNode(rootNode.getLeft(), newNode);
             }
         }
         // if new node > root node, recurse right
         else if (newNode.getData().compareTo(rootNode.getData()) > 0) {
-            if (rootNode.getRight() == null){
+            if (rootNode.getRight() == null) {
                 rootNode.setLeft(newNode);
-            }
-            else {
+            } else {
                 addNode(rootNode.getRight(), newNode);
             }
         }
@@ -49,41 +47,38 @@ public class TreeManager<E extends Comparable> {
     }
 
 
-    public void removeNode(Node<E> killNode){
+    public void removeNode(Node<E> killNode) {
         // to do
     }
 
-   public void inOrder(Node<E> node){
-        if (node == null){
+    public void inOrder(Node<E> node) {
+        if (node == null) {
             return;
-        }
-        else {
+        } else {
             inOrder(node.getLeft());
             System.out.print(node.getData());
             inOrder(node.getRight());
         }
-   }
+    }
 
-   public void postOrder(Node<E> node){
-        if (node == null){
+    public void postOrder(Node<E> node) {
+        if (node == null) {
             return;
-        }
-        else {
+        } else {
             postOrder(node.getLeft());
             postOrder(node.getRight());
             System.out.print(node.getData());
         }
-   }
+    }
 
-   public void preOrder(Node<E> node){
+    public void preOrder(Node<E> node) {
         if (node == null) {
             return;
-        }
-        else {
+        } else {
             System.out.print(node.getData());
             preOrder(node.getLeft());
             preOrder(node.getRight());
         }
-   }
+    }
 
 }
