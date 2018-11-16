@@ -3,7 +3,7 @@
  * 9/21/2018
  *
  * This program calculates and compares the total cost of purchasing a house
- * over a 5 year period.
+ * over a 5 year period. This is a test change.
  */
 
 #include <stdio.h>
