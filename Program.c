@@ -24,6 +24,7 @@ int main(int argv, char **argc){
         // print classes by availablity per year in school
       } else if (answer == 5){
         // exit with no errors
+          fclose(in_file);
         return 0;
       } else{
         // invalid response
