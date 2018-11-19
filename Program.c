@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef enum {false, true} bool;
+typedef enum {false, true} Bool;
 
 int printMenu();
 void classes_by_number();
@@ -22,12 +22,16 @@ int main(int argv, char **argc){
         // print classes by time
       } else if (answer == 4){
         // print classes by availablity per year in school
+      } else if (answer == 5){
+        // exit with no errors
+        return 0;
       } else{
         // invalid response
       }
 
   } while(answer != 5);
 
+  // exit with no errors
   return 0;
 }
 
@@ -35,8 +39,8 @@ int main(int argv, char **argc){
 int printMenu(){
   int response;
 
-  printf("1) Print all classes by CSCI number (include all information) in order of CSCI number\n");
-  printf("2) Print all classes available on MWF or available on TR in order of times.\n");
+  printf("1) Print all classes in order by CSCI number\n");
+  printf("2) Print all classes available on MWF or available on TR ordered by time.\n");
   printf("3) Print the class available at a specific time\n");
   printf("4) Print classes available to freshmen, sophomores, juniors, or seniors\n");
   printf("5) Quit\n");
