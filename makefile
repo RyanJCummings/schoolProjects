@@ -1,5 +1,5 @@
-prog: main.o structure.o print.o
-	gcc -o prog main.o structure.o print.o
+prog: Program.o structure.o print.o
+	gcc -o prog Program.o structure.o print.o
 
 main.o: main.c
 	gcc -c main.c
