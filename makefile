@@ -1,11 +1,8 @@
-prog: Program.o structure.o print.o
-	gcc -o prog Program.o structure.o print.o
+prog: Program.o print.o
+	gcc -o Program.o print.o
 
-main.o: main.c
-	gcc -c main.c
+Program.o: Program.c structure.h
+	gcc -c Program -Wall Program.c
 
-structure.o: structure.c
-	gcc -c structure.c
-	
 print.o: print.c
-	gcc -c print.c
+	gcc -c print -Wall print.c
