@@ -1,5 +1,5 @@
-prog: Program.o print.o
-	gcc -o prog -Wall Program.o print.o
+prog: Program.o print.o readin.o
+	gcc -o prog -Wall Program.o print.o readin.o
 
 Program.o: Program.c structure.h
 	gcc -c Program.c
