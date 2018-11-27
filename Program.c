@@ -7,8 +7,10 @@ typedef enum {false, true} Bool;
 int printMenu();
 
 int main(int argv, char **argc){
-  FILE *in_file = fopen("classes.txt", "r");
+  FILE *in_file;                 //
+  Class class_array[20];
   int answer;
+
   do {
       answer = printMenu();
       if (answer == 1){
@@ -21,7 +23,6 @@ int main(int argv, char **argc){
         // print classes by availablity per year in school
       } else if (answer == 5){
         // exit with no errors
-        fclose(in_file);
         return 0;
       } else {
         // invalid response
@@ -30,7 +31,6 @@ int main(int argv, char **argc){
 
   } while(answer != 5);
 
-  fclose(in_file);
   // exit with no errors
   return 0;
 }

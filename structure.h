@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-typedef struct csci_class {
+typedef struct {
   char[20] course_num;
   char[50] title;
   char[5] day;
