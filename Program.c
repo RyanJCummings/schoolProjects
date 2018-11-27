@@ -4,17 +4,21 @@
 
 typedef enum {false, true} Bool;
 
-int printMenu();
-
 int main(int argv, char **argc){
+<<<<<<< HEAD
   FILE *in_file;                 //
   Class class_array[20];
+=======
+
+  FILE *in_file = fopen("classes.txt", "r");
+>>>>>>> 321058a4cf1b85e2eab9ecb6046cc6623819f395
   int answer;
 
   do {
       answer = printMenu();
       if (answer == 1){
         // print all classes by CSCI number
+        test();
       } else if (answer == 2){
         // print classes by day/time group
       } else if (answer == 3){
@@ -26,7 +30,7 @@ int main(int argv, char **argc){
         return 0;
       } else {
         // invalid response
-        printf("Please enter a valid response")
+        printf("Please enter a valid response");
       }
 
   } while(answer != 5);
