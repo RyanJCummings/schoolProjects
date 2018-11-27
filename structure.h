@@ -14,8 +14,9 @@ void classes_by_time();
 void classes_by_year();
 int printMenu();
 
-void sortClassNumber(Class strt[], int size);
-void sortWeekday(Class str[], int size);
-void sortTime(Class strt[], int size);
-void sortYear(Class strt[], int size);
+void sortClassNumber(Class strt[]);
+void sortWeekday(Class str[]);
+void sortTime(Class strt[]);
+void sortYear(Class strt[]);
 void Swap(Class *a, Class *b);
+void printFile(Class strt[], char *filename);

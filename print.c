@@ -3,9 +3,11 @@
 #include <string.h>
 #include "structure.h"
 
-void sortClassNumber(Class strt[], int size) {
+// sorting array for Class Number using swap function to swap pointer
+void sortClassNumber(Class strt[]) {
 
     int i, j;
+    int size = (sizeof(strt) / sizeof(strt[0]));
 
     for (i = 0; i < size; i++) {
         for (j = i ; j < size; j++) {
@@ -16,9 +18,11 @@ void sortClassNumber(Class strt[], int size) {
     }
 }
 
-void sortWeekday(Class strt[], int size) {
+// sorting array for weekday using swap function to swap pointer
+void sortWeekday(Class strt[]) {
 
     int i, j;
+    int size = (sizeof(strt) / sizeof(strt[0]));
 
     for (i = 0; i < size; i++) {
         for (j = i ; j < size; j++) {
@@ -29,10 +33,11 @@ void sortWeekday(Class strt[], int size) {
     }
 }
 
-
-void sortTime(Class strt[], int size) {
+// sorting array for time using swap function to swap pointer
+void sortTime(Class strt[]) {
 
     int i, j;
+    int size = (sizeof(strt) / sizeof(strt[0]));
 
     for (i = 0; i < size; i++) {
         for (j = i ; j < size; j++) {
@@ -43,10 +48,11 @@ void sortTime(Class strt[], int size) {
     }
 }
 
-
-void sortYear(Class strt[], int size) {
+// sorting array for year using swap function to swap pointer
+void sortYear(Class strt[]) {
 
     int i, j;
+    int size = (sizeof(strt) / sizeof(strt[0]));
 
     for (i = 0; i < size; i++) {
         for (j = i ; j < size; j++) {
@@ -55,6 +61,24 @@ void sortYear(Class strt[], int size) {
             }
         }
     }
+}
+
+// function for printing the structure
+void printFile(Class strt[], char *filename) {
+
+    int i;
+    int size = (sizeof(strt) / sizeof(strt[0]));
+
+    // create file pointer with given filename
+    FILE *fp = fopen(filename, "w+");
+
+    // printing in file with for loop
+    for (i=0; i<size; i++) {
+        fprintf(fp, strt[i].course_num, strt[i].title, strt[i].day, strt[i].time, strt[i].year);
+    }
+
+    // close file after writing
+    fclose(fp);
 }
 
 

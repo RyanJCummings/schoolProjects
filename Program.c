@@ -4,18 +4,23 @@
 
 typedef enum {false, true} Bool;
 
-int main(int argv, char **argc){
+int main(int argc, char **argv){
+
+  char *filename = argv[1];
+
   FILE *in_file;                 //
   Class class_array[20];
 
   int answer;
-  int size = 20;
+
+  printf("%s\n", filename); // just for testing the input argument...
 
   do {
       answer = printMenu();
       if (answer == 1){
         // print all classes by CSCI number
-        sortClassNumber(class_array, size);
+        sortClassNumber(class_array);
+        printFile(class_array, filename);
       } else if (answer == 2){
         // print classes by day/time group
       } else if (answer == 3){
