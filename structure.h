@@ -14,4 +14,7 @@ void classes_by_time();
 void classes_by_year();
 int printMenu();
 
-void test();
+void sortClassNumber(Class strt[]);
+void sortWeekday(Class str[]);
+void sortTime(Class strt[]);
+void sortYear(Class strt[]);
