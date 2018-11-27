@@ -5,13 +5,9 @@
 typedef enum {false, true} Bool;
 
 int main(int argv, char **argc){
-<<<<<<< HEAD
   FILE *in_file;                 //
   Class class_array[20];
-=======
 
-  FILE *in_file = fopen("classes.txt", "r");
->>>>>>> 321058a4cf1b85e2eab9ecb6046cc6623819f395
   int answer;
 
   do {
