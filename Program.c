@@ -10,6 +10,9 @@ int main(int argv, char **argc){
 
   int answer;
 
+  read_file(in_file, class_array);
+
+
   do {
       answer = printMenu();
       if (answer == 1){
@@ -26,7 +29,7 @@ int main(int argv, char **argc){
         return 0;
       } else {
         // invalid response
-        printf("Please enter a valid response");
+        printf("Please enter a valid response\n");
       }
 
   } while(answer != 5);
