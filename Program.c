@@ -12,19 +12,25 @@ int main(int argc, char **argv){
   Class class_array[20];
 
   int answer;
+  int size = 13;
 
-  read_file(in_file, class_array);
+  readFileTest(class_array, size);
+  //printFile(class_array, size);
+
+  //read_file(in_file, class_array);
       answer = printMenu();
       if (answer == 1){
         // print all classes by CSCI number
-        sortClassNumber(class_array);
-        printFile(class_array, filename);
+        sortClassNumber(class_array, size);
       } else if (answer == 2){
         // print classes by day/time group
+        sortWeekday(class_array, size);
       } else if (answer == 3){
         // print classes by time
+        sortTime(class_array, size);
       } else if (answer == 4){
         // print classes by availablity per year in school
+        sortYear(class_array, size);
       } else if (answer == 5){
         // exit with no errors
         return 0;

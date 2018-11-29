@@ -4,10 +4,12 @@
 #include "structure.h"
 
 // sorting array for Class Number using swap function to swap pointer
-void sortClassNumber(Class strt[]) {
+void sortClassNumber(Class strt[], int size) {
 
     int i, j;
-    int size = (sizeof(strt) / sizeof(strt[0]));
+    char header[160] = "\n\nSortet bei Class Number\n----------------------------------\n";
+
+    //int size = (sizeof(strt) / sizeof(strt[0]));
 
     for (i = 0; i < size; i++) {
         for (j = i ; j < size; j++) {
@@ -16,13 +18,19 @@ void sortClassNumber(Class strt[]) {
             }
         }
     }
+
+    printFile(strt, size, header);
 }
 
 // sorting array for weekday using swap function to swap pointer
-void sortWeekday(Class strt[]) {
+void sortWeekday(Class strt[], int size) {
 
     int i, j;
-    int size = (sizeof(strt) / sizeof(strt[0]));
+    //int size = (sizeof(strt) / sizeof(strt[0]));
+    char header[160] = "\n\nSortet bei Weekday\n----------------------------------\n";
+    char ans[10];
+
+    scanf("Show classes on MWF or TR? [MWF/TR] %s\n", ans);
 
     for (i = 0; i < size; i++) {
         for (j = i ; j < size; j++) {
@@ -31,28 +39,34 @@ void sortWeekday(Class strt[]) {
             }
         }
     }
+
+    printFile(strt, size, header);
 }
 
 // sorting array for time using swap function to swap pointer
-void sortTime(Class strt[]) {
+void sortTime(Class strt[], int size) {
 
     int i, j;
-    int size = (sizeof(strt) / sizeof(strt[0]));
+    //int size = (sizeof(strt) / sizeof(strt[0]));
+    char header[160] = "\n\nSortet bei time\n----------------------------------\n";
 
     for (i = 0; i < size; i++) {
         for (j = i ; j < size; j++) {
-            if (strt[i].time > strt[j].time) {
+            if (strcmp(strt[i].time , strt[j].time) > 0) {
                 Swap(&strt[i], &strt[j]);
             }
         }
     }
+
+    printFile(strt, size, header);
 }
 
 // sorting array for year using swap function to swap pointer
-void sortYear(Class strt[]) {
+void sortYear(Class strt[], int size) {
 
     int i, j;
-    int size = (sizeof(strt) / sizeof(strt[0]));
+    //int size = (sizeof(strt) / sizeof(strt[0]));
+    char header[160] = "\n\nSortet bei year\n----------------------------------\n";
 
     for (i = 0; i < size; i++) {
         for (j = i ; j < size; j++) {
@@ -61,24 +75,39 @@ void sortYear(Class strt[]) {
             }
         }
     }
+
+    printFile(strt, size, header);
 }
 
 // function for printing the structure
-void printFile(Class strt[], char *filename) {
+void printFile(Class strt[], int size, char header[]) {
 
     int i;
-    int size = (sizeof(strt) / sizeof(strt[0]));
+    //int size = (sizeof(strt) / sizeof(strt[0]));
 
     // create file pointer with given filename
-    FILE *fp = fopen(filename, "w+");
+    FILE * fP;
+    fP = fopen("output.txt", "a");
+
+    // Printing Header
+    fprintf(fP, "%s", header);
 
     // printing in file with for loop
     for (i=0; i<size; i++) {
-        fprintf(fp, strt[i].course_num, strt[i].title, strt[i].day, strt[i].time, strt[i].year);
+        fprintf(fP, "%s", strt[i].course_num);
+        fprintf(fP, "%s", " ");
+        fprintf(fP, "%s", strt[i].title);
+        fprintf(fP, "%s", " ");
+        fprintf(fP, "%s", strt[i].day);
+        fprintf(fP, "%s", " ");
+        fprintf(fP, "%s", strt[i].time);
+        fprintf(fP, "%s", " ");
+        fprintf(fP, "%d", strt[i].year);
+        fprintf(fP, "\n");
     }
 
     // close file after writing
-    fclose(fp);
+    fclose(fP);
 }
 
 
