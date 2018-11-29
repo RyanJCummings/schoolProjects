@@ -4,7 +4,10 @@
 
 typedef enum {false, true} Bool;
 
-int main(int argv, char **argc){
+int main(int argc, char **argv){
+
+  char *filename = argv[1];
+
   FILE *in_file;                 //
   Class class_array[20];
 
@@ -14,7 +17,8 @@ int main(int argv, char **argc){
       answer = printMenu();
       if (answer == 1){
         // print all classes by CSCI number
-        test();
+        sortClassNumber(class_array);
+        printFile(class_array, filename);
       } else if (answer == 2){
         // print classes by day/time group
       } else if (answer == 3){

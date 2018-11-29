@@ -15,4 +15,9 @@ void classes_by_year();
 int printMenu();
 int read_file(FILE *in_file, Class class_array[]);
 
-void test();
+void sortClassNumber(Class strt[]);
+void sortWeekday(Class str[]);
+void sortTime(Class strt[]);
+void sortYear(Class strt[]);
+void Swap(Class *a, Class *b);
+void printFile(Class strt[], char *filename);
