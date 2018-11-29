@@ -16,15 +16,18 @@ int read_file(FILE *in_file, Class class_array[]){
   } else {
     printf("in the 'else' statement\n");
       while(fgets(line, 100, in_file) != NULL){
-        printf("%d\n", i);
+        //printf("%d\n", i);
         sscanf(line, "%s %s %s %s %d",class_array[i].course_num, class_array[i].title,
           class_array[i].day, class_array[i].time, &class_array[i].year);
 
         printf("%s\n", class_array[i].course_num);
+				printf("%s\n", class_array[i].title);
+				printf("%s\n", class_array[i].day);
+				printf("%d\n", class_array[i].year);
         i++;
     }
   }
   free(line);
-  return 0;   // exit with no errors
   fclose(in_file);
+  return 0;   // exit with no errors
 }

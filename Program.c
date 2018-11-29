@@ -11,9 +11,6 @@ int main(int argv, char **argc){
   int answer;
 
   read_file(in_file, class_array);
-
-
-  do {
       answer = printMenu();
       if (answer == 1){
         // print all classes by CSCI number
@@ -29,10 +26,9 @@ int main(int argv, char **argc){
         return 0;
       } else {
         // invalid response
-        printf("Please enter a valid response\n");
+				printf("Sorry that is not a valid response\n");
+        exit(0);
       }
-
-  } while(answer != 5);
 
   // exit with no errors
   return 0;
