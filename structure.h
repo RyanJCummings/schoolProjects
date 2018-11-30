@@ -21,4 +21,5 @@ void sortWeekday(Class str[], int size);
 void sortTime(Class strt[], int size);
 void sortYear(Class strt[], int size);
 void Swap(Class *a, Class *b);
-void printFile(Class strt[], int size, char header[]);
+void printFile(Class strt[], int size, char header[], char days[]);
+void print(Class strt[], FILE *fP, int i);
