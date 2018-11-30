@@ -3,47 +3,20 @@
 #include <stdlib.h>
 #include "structure.h"
 
-int read_file(FILE *in_file, Class class_array[]){
-  printf("Testing\n");
-  char *line = malloc(sizeof(char) * 101);
-  int i = 0;
-  in_file = fopen("classes.txt", "r");
-
-  if (in_file == NULL){          // error handling
-    printf("in the 'if' statement\n");
-    perror("Error opening file");
-    return(-1);
-  } else {
-    printf("in the 'else' statement\n");
-      while(fgets(line, 100, in_file) != NULL){
-        //printf("%d\n", i);
-        sscanf(line, "%s %s %s %s %d",class_array[i].course_num, class_array[i].title,
-          class_array[i].day, class_array[i].time, &class_array[i].year);
-
-        printf("%s\n", class_array[i].course_num);
-				printf("%s\n", class_array[i].title);
-				printf("%s\n", class_array[i].day);
-				printf("%d\n", class_array[i].year);
-        i++;
-    }
-  }
-  free(line);
-  fclose(in_file);
-  return 0;   // exit with no errors
-}
-
-
-void readFileTest(Class class_array[], int size) {
+void readFile(Class class_array[], int size) {
 
     char line[80];
     char *token;
     int i=0;
+		FILE *fP;
 
     printf("i: %d\n", i);
 
-    FILE * fP;
-    fP = fopen("classes.txt", "r");
 
+		if ((fP = fopen("classes.txt", "r")) == NULL){
+			printf("Error opening file\n");
+			exit(1);
+		}
     //while(!feof(fP)) {                    // This gave me a crash
     //while(fgets(line, 80, fP)!=NULL) {    // and this stoped at line 7...
 
@@ -93,5 +66,3 @@ void readFileTest(Class class_array[], int size) {
     fclose(fP);
 
 }
-
-

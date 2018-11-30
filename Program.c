@@ -6,15 +6,12 @@ typedef enum {false, true} Bool;
 
 int main(int argc, char **argv){
 
-  //char *filename = argv[1];
-
-  //FILE *in_file;                 //
   Class class_array[20];
 
   int answer=0;
   int size = 13;
 
-  readFileTest(class_array, size);
+  readFile(class_array, size);
   //printFile(class_array, size);
 
   // creating a new file to write
@@ -43,9 +40,9 @@ int main(int argc, char **argv){
         return 0;
       } else {
         // invalid response
-		printf("Sorry that is not a valid response\n");
+				printf("Sorry that is not a valid response\n");
         exit(0);
-      }
+      	}
 	    } while(answer != 5);
 
   }

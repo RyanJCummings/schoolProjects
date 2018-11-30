@@ -25,7 +25,7 @@ void sortClassNumber(Class strt[], int size) {
 // sorting array for weekday using swap function to swap pointer
 void sortWeekday(Class strt[], int size) {
 
-    int i, j;
+
     //int size = (sizeof(strt) / sizeof(strt[0]));
     char header[160] = "\n\nSortet bei Weekday\n----------------------------------\n";
     char ans[10];
@@ -34,32 +34,15 @@ void sortWeekday(Class strt[], int size) {
     scanf("%s", ans);
     printf("Answer: %s\n", ans);
 
-    for (i = 0; i < size; i++) {
-        for (j = i ; j < size; j++) {
-            if (strcmp(strt[i].day , strt[j].day) > 0) {
-                Swap(&strt[i], &strt[j]);
-            }
-        }
-    }
-
     printFile(strt, size, header, ans);
 }
 
 // sorting array for time using swap function to swap pointer
 void sortTime(Class strt[], int size) {
 
-    int i, j;
     //int size = (sizeof(strt) / sizeof(strt[0]));
     char header[160] = "\n\nClasses for selected starttime\n----------------------------------\n";
     char time[10];
-
-    for (i = 0; i < size; i++) {
-        for (j = i ; j < size; j++) {
-            if (strcmp(strt[i].time , strt[j].time) > 0) {
-                Swap(&strt[i], &strt[j]);
-            }
-        }
-    }
 
     printf("Which starttime? [hhmm]: ");
     scanf("%s", time);
@@ -71,7 +54,6 @@ void sortTime(Class strt[], int size) {
 // sorting array for year using swap function to swap pointer
 void sortYear(Class strt[], int size) {
 
-    int i, j;
     //int size = (sizeof(strt) / sizeof(strt[0]));
     char header[160] = "\n\nClasses for \n----------------------------------\n";
     char ans[10];
@@ -90,14 +72,6 @@ void sortYear(Class strt[], int size) {
         strcpy(header, "\n\nClasses for Senior\n----------------------------------\n");
     } else {
          strcpy(header, "\n\nWrong selection\n----------------------------------\n");
-    }
-
-    for (i = 0; i < size; i++) {
-        for (j = i ; j < size; j++) {
-            if (strt[i].year > strt[j].year) {
-                Swap(&strt[i], &strt[j]);
-            }
-        }
     }
 
     printFile(strt, size, header, ans);
@@ -174,7 +148,7 @@ void printFile(Class strt[], int size, char header[], char days[]) {
         token1 = strtok(days, "-");
         printf("Token1 is: %s\n", token1);
 
-        for (i=0; i<size; i++) {       
+        for (i=0; i<size; i++) {
             token2 = strtok(strt[i].time, "-");
 
             if(strcmp(token1, token2)==0) {
@@ -210,4 +184,3 @@ void print(Class strt[], FILE *fP, int i) {
     fprintf(fP, "%d", strt[i].year);
     fprintf(fP, "\n");
 }
-
