@@ -15,6 +15,7 @@ int main(int argc, char **argv){
 
   read_file(in_file, class_array);
       answer = printMenu();
+			do {
       if (answer == 1){
         // print all classes by CSCI number
         sortClassNumber(class_array);
@@ -33,6 +34,7 @@ int main(int argc, char **argv){
 				printf("Sorry that is not a valid response\n");
         exit(0);
       }
+		} while(answer != 5);
 
   // exit with no errors
   return 0;
