@@ -25,14 +25,16 @@ void sortClassNumber(Class strt[], int size) {
 // sorting array for weekday using swap function to swap pointer
 void sortWeekday(Class strt[], int size) {
 
-
     //int size = (sizeof(strt) / sizeof(strt[0]));
     char header[160] = "\n\nSortet bei Weekday\n----------------------------------\n";
     char ans[10];
 
     printf("Show classes on MWF or TR? [MWF/TR]: ");
     scanf("%s", ans);
-    printf("Answer: %s\n", ans);
+    if (strcmp(ans, "MWF")!=0 || strcmp(ans, "TR")!=0) {
+        printf("Wrong input!\n");
+        exit(1);
+    }
 
     printFile(strt, size, header, ans);
 }
@@ -44,9 +46,9 @@ void sortTime(Class strt[], int size) {
     char header[160] = "\n\nClasses for selected starttime\n----------------------------------\n";
     char time[10];
 
-    printf("Which starttime? [hhmm]: ");
+    printf("Which start time? [hhmm]: ");
     scanf("%s", time);
-    printf("Answer: %s\n", time);
+    //printf("Answer: %s\n", time);
 
     printFile(strt, size, header, time);
 }
@@ -146,7 +148,7 @@ void printFile(Class strt[], int size, char header[], char days[]) {
     } else {
 
         token1 = strtok(days, "-");
-        printf("Token1 is: %s\n", token1);
+        //printf("Token1 is: %s\n", token1);
 
         for (i=0; i<size; i++) {
             token2 = strtok(strt[i].time, "-");
@@ -161,7 +163,6 @@ void printFile(Class strt[], int size, char header[], char days[]) {
     fclose(fP);
 }
 
-
 //function to swap two variables
 void Swap(Class *a, Class *b) {
 
@@ -173,14 +174,14 @@ void Swap(Class *a, Class *b) {
 
 // function for printing data
 void print(Class strt[], FILE *fP, int i) {
+    fprintf(fP, "%s", strt[i].title);
+    fprintf(fP, "%s", " ");
     fprintf(fP, "%s", strt[i].course_num);
     fprintf(fP, "%s", " ");
-    fprintf(fP, "%s", strt[i].title);
+    fprintf(fP, "%d", strt[i].year);
     fprintf(fP, "%s", " ");
     fprintf(fP, "%s", strt[i].day);
     fprintf(fP, "%s", " ");
     fprintf(fP, "%s", strt[i].time);
-    fprintf(fP, "%s", " ");
-    fprintf(fP, "%d", strt[i].year);
     fprintf(fP, "\n");
 }
