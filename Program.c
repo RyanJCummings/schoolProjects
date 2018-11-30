@@ -20,9 +20,9 @@ int main(int argc, char **argv){
   fclose(fP);
 
   //read_file(in_file, class_array);
-  while (answer !=5) {
-      answer = printMenu();
+
 	do {
+			answer = printMenu();
       if (answer == 1){
         // print all classes by CSCI number
         sortClassNumber(class_array, size);
@@ -37,15 +37,13 @@ int main(int argc, char **argv){
         sortYear(class_array, size);
       } else if (answer == 5){
         // exit with no errors
-        return 0;
+        	return 0;
       } else {
         // invalid response
 				printf("Sorry that is not a valid response\n");
         exit(0);
-      	}
+				}
 	    } while(answer != 5);
-
-  }
 
   // exit with no errors
   return 0;
