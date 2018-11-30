@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include "structure.h"
 
+
 // Reads the input file and parses line by line into an array of Class structs
 int readFile(Class class_array[]) {
 

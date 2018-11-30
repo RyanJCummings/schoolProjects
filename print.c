@@ -3,6 +3,7 @@
 #include <string.h>
 #include "structure.h"
 
+
 // sorts input by Class Number.
 void sortClassNumber(Class strt[], int size) {
 
@@ -24,6 +25,15 @@ void sortWeekday(Class strt[], int size) {
 
     char header[160] = "\n\nSorted by Weekday\n----------------------------------\n";
     char ans[10];
+    int i,j;
+
+    for (i = 0; i < size; i++) {
+        for (j = i ; j < size; j++) {
+            if (strcmp(strt[i].time, strt[j].time) > 0) {
+                Swap(&strt[i], &strt[j]);
+            }
+        }
+    }
 
     printf("Show classes on MWF or TR? [MWF/TR]: ");
     scanf("%s", ans);
@@ -39,22 +49,64 @@ void sortWeekday(Class strt[], int size) {
 // sorts classes according to time the class is offered
 void sortTime(Class strt[], int size) {
 
-    //int size = (sizeof(strt) / sizeof(strt[0]));
-    char header[160] = "\n\nClasses for selected start time\n----------------------------------\n";
+    char header[160] = "\n\nClasses for selected start time and day\n----------------------------------\n";
     char time[10];
+    char day[10];
+    char *token;
+    int i=0, j, x=0;
 
-    printf("Which start time? [hhmm]: ");
-		scanf("%s", time);
-		if (strcmp(time,"0900") == 0 || strcmp(time,"1000") == 0 || strcmp(time,"1100") == 0
-			|| strcmp(time,"1200") == 0 || strcmp(time,"1300") == 0 || strcmp(time,"1400") == 0
-			|| strcmp(time,"1500") == 0){
+    // create file pointer with given filename
+    FILE * fP;
+    fP = fopen("output.txt", "a");
 
-				printFile(strt, size, header, time);
+    // Sorting array first
+    for (i = 0; i < size; i++) {
+        for (j = i ; j < size; j++) {
+            if (strcmp(strt[i].time, strt[j].time) > 0) {
+                Swap(&strt[i], &strt[j]);
+            }
+        }
+    }
 
-		} else {
-				printf ("Sorry that response is invalid\n");
-				exit(1);
-		}
+    // getting user input
+    printf("Which start time? [hhmm ddd]: ");
+    scanf("%s", time);
+    scanf("%s", day);
+
+    // Printing Header
+    fprintf(fP, "%s", header);
+
+    // Printing Data from Array
+    for (i=0; i<size; i++) {
+
+        token = strtok(strt[i].time, "-");
+
+        if (strcmp(token, time)==0 && strcmp(strt[i].day, day)==0) {
+            print(&strt[i], fP, 0);
+            x = 1;
+        }
+
+    }
+    // If no match, print this message
+    if (x==0) {
+        fprintf(fP, "%s", "Could not find selected day or time!");
+    }
+
+
+    /*
+        if (strcmp(time,"0900") == 0 || strcmp(time,"1000") == 0 || strcmp(time,"1100") == 0
+                || strcmp(time,"1200") == 0 || strcmp(time,"1300") == 0 || strcmp(time,"1400") == 0
+                || strcmp(time,"1500") == 0){
+
+                printFile(strt, size, header, time);
+
+        } else {
+            printf ("Sorry that response is invalid\n");
+            exit(1);
+        }
+     */
+
+    fclose(fP);
 }
 
 // sorts classes by year in school
@@ -63,21 +115,23 @@ void sortYear(Class strt[], int size) {
     char header[160] = "\n\nClasses for \n----------------------------------\n";
     char ans[10];
 
+    // getting user input and select compatible header
     printf("Which year? [Freshman, Sophomore, Junior, senioR (f,s,j,r)]: ");
     scanf("%s", ans);
 	    if (strcmp(ans, "f")==0) {
-	        strcpy(header, "\n\nClasses for Freshman\n----------------------------------\n");
+                strcpy(header, "\n\nClasses available for Freshman\n----------------------------------\n");
 	    } else if (strcmp(ans, "s")==0) {
-	        strcpy(header, "\n\nClasses for Sophomore\n----------------------------------\n");
+                strcpy(header, "\n\nClasses available for Sophomore\n----------------------------------\n");
 	    } else if (strcmp(ans, "j")==0) {
-	        strcpy(header, "\n\nClasses for Junior\n----------------------------------\n");
+                strcpy(header, "\n\nClasses available for Junior\n----------------------------------\n");
 	    } else if (strcmp(ans, "r")==0) {
-	        strcpy(header, "\n\nClasses for Senior\n----------------------------------\n");
+                strcpy(header, "\n\nClasses available for Senior\n----------------------------------\n");
 	    } else {
 					printf("Sorry that response is invalid\n");
 					exit(1);
 	    }
 
+            // print into file with print function
 	    printFile(strt, size, header, ans);
 }
 
@@ -101,6 +155,7 @@ void printFile(Class strt[], int size, char header[], char days[]) {
             print(strt, fP, i);
         }
 
+    // print selections
     } else if (strcmp(days, "f")==0) {
 
         for (i=0; i<size; i++) {
@@ -137,6 +192,7 @@ void printFile(Class strt[], int size, char header[], char days[]) {
 
         }
 
+    // printing selected days
     } else if (strcmp(days, "MWF") == 0 || (strcmp(days, "TR") == 0)) {
 
         for (i=0; i<size; i++) {
@@ -146,6 +202,7 @@ void printFile(Class strt[], int size, char header[], char days[]) {
 
         }
 
+    // printing times
     } else {
 
         token1 = strtok(days, "-");
@@ -163,7 +220,7 @@ void printFile(Class strt[], int size, char header[], char days[]) {
     fclose(fP);
 }
 
-//function to swap two variables
+//function to swap two structures
 void Swap(Class *a, Class *b) {
 
     Class temp;
@@ -176,34 +233,30 @@ void Swap(Class *a, Class *b) {
 void print(Class strt[], FILE *fP, int i) {
     char yearText[30];
 
+    // formatted priting to file
     fprintf(fP, "%-47s", strt[i].title);
-    //fprintf(fP, "%s", " ");
     fprintf(fP, "%-9s", strt[i].course_num);
-    //fprintf(fP, "%s", " ");
 
     switch (strt[i].year) {
         case 1:
-            strcpy(yearText, "avialable for Freshman");
+            strcpy(yearText, "Freshman");
             break;
         case 2:
-            strcpy(yearText, "avialable for Sophomore");
+            strcpy(yearText, "Sophomore");
             break;
         case 3:
-            strcpy(yearText, "avialable for Junior");
+            strcpy(yearText, "Junior");
             break;
         case 4:
-            strcpy(yearText, "avialable for Senior");
+            strcpy(yearText, "Senior");
             break;
         default:
             strcpy(yearText, "No year...");
-            printf("yearText is: %s\n", yearText);
-            printf("strt.year is: ->%d<-\n", strt[i].year);
     }
 
-    fprintf(fP, "%-25s", yearText);
-    //fprintf(fP, "%s", " ");
+    fprintf(fP, "%-10s", yearText);
     fprintf(fP, "%-4s", strt[i].day);
-    //fprintf(fP, "%s", " ");
     fprintf(fP, "%2s", strt[i].time);
     fprintf(fP, "\n");
 }
+
