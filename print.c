@@ -77,14 +77,9 @@ void sortTime(Class strt[], int size) {
     // adjusting input if day is a number and swap it.
     if (day[0]>48 && day[0]<57) {
 
-        printf("in the if statement...");
-
         strcpy(temp, day);
         strcpy(day, time);
         strcpy(time, temp);
-
-        printf("day: %s\n", day);
-        printf("time: %s\n", time);
     }
 
     // Printing Header
