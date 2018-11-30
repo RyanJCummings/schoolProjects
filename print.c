@@ -56,8 +56,8 @@ void sortTime(Class strt[], int size) {
     int i=0, j, x=0;
 
     // create file pointer with given filename
-    FILE * fP;
-    fP = fopen("output.txt", "a");
+    FILE * fp;
+    fp = fopen("output.txt", "a");
 
     // Sorting array first
     for (i = 0; i < size; i++) {
@@ -69,12 +69,12 @@ void sortTime(Class strt[], int size) {
     }
 
     // getting user input
-    printf("Which start time? [hhmm ddd]: ");
+    printf("Which start time? [hhmm dd]: ");
     scanf("%s", time);
-    scanf("%s", day);
+		scanf("%s", day);
 
     // Printing Header
-    fprintf(fP, "%s", header);
+    fprintf(fp, "%s", header);
 
     // Printing Data from Array
     for (i=0; i<size; i++) {
@@ -82,31 +82,18 @@ void sortTime(Class strt[], int size) {
         token = strtok(strt[i].time, "-");
 
         if (strcmp(token, time)==0 && strcmp(strt[i].day, day)==0) {
-            print(&strt[i], fP, 0);
+            print(&strt[i], fp, 0);
             x = 1;
         }
 
     }
     // If no match, print this message
     if (x==0) {
-        fprintf(fP, "%s", "Could not find selected day or time!");
+        printf("%s", "Could not find selected day or time.\n");
+				exit(1);
     }
 
-
-    /*
-        if (strcmp(time,"0900") == 0 || strcmp(time,"1000") == 0 || strcmp(time,"1100") == 0
-                || strcmp(time,"1200") == 0 || strcmp(time,"1300") == 0 || strcmp(time,"1400") == 0
-                || strcmp(time,"1500") == 0){
-
-                printFile(strt, size, header, time);
-
-        } else {
-            printf ("Sorry that response is invalid\n");
-            exit(1);
-        }
-     */
-
-    fclose(fP);
+    fclose(fp);
 }
 
 // sorts classes by year in school
@@ -142,17 +129,17 @@ void printFile(Class strt[], int size, char header[], char days[]) {
     char *token1, *token2;
 
     // create file pointer with given filename
-    FILE * fP;
-    fP = fopen("output.txt", "a");
+    FILE * fp;
+    fp = fopen("output.txt", "a");
 
     // Printing Header
-    fprintf(fP, "%s", header);
+    fprintf(fp, "%s", header);
 
     if (strcmp(days, "print")==0)  {
 
         // printing in file with for loop
         for (i=0; i<size; i++) {
-            print(strt, fP, i);
+            print(strt, fp, i);
         }
 
     // print selections
@@ -160,7 +147,7 @@ void printFile(Class strt[], int size, char header[], char days[]) {
 
         for (i=0; i<size; i++) {
             if(strt[i].year == 1) {
-                print(strt, fP, i);
+                print(strt, fp, i);
             }
 
         }
@@ -169,7 +156,7 @@ void printFile(Class strt[], int size, char header[], char days[]) {
 
         for (i=0; i<size; i++) {
             if(strt[i].year == 2) {
-                print(strt, fP, i);
+                print(strt, fp, i);
             }
 
         }
@@ -178,7 +165,7 @@ void printFile(Class strt[], int size, char header[], char days[]) {
 
         for (i=0; i<size; i++) {
             if(strt[i].year == 3) {
-                print(strt, fP, i);
+                print(strt, fp, i);
             }
 
         }
@@ -187,7 +174,7 @@ void printFile(Class strt[], int size, char header[], char days[]) {
 
         for (i=0; i<size; i++) {
             if(strt[i].year == 4) {
-                print(strt, fP, i);
+                print(strt, fp, i);
             }
 
         }
@@ -197,7 +184,7 @@ void printFile(Class strt[], int size, char header[], char days[]) {
 
         for (i=0; i<size; i++) {
             if(strcmp(strt[i].day, days) == 0) {
-                print(strt, fP, i);
+                print(strt, fp, i);
             }
 
         }
@@ -211,13 +198,13 @@ void printFile(Class strt[], int size, char header[], char days[]) {
             token2 = strtok(strt[i].time, "-");
 
             if(strcmp(token1, token2)==0) {
-                print(strt, fP, i);
+                print(strt, fp, i);
             }
         }
     }
 
     // close file after writing
-    fclose(fP);
+    fclose(fp);
 }
 
 //function to swap two structures
@@ -230,12 +217,12 @@ void Swap(Class *a, Class *b) {
 }
 
 // function for printing data
-void print(Class strt[], FILE *fP, int i) {
+void print(Class strt[], FILE *fp, int i) {
     char yearText[30];
 
     // formatted priting to file
-    fprintf(fP, "%-47s", strt[i].title);
-    fprintf(fP, "%-9s", strt[i].course_num);
+    fprintf(fp, "%-47s", strt[i].title);
+    fprintf(fp, "%-9s", strt[i].course_num);
 
     switch (strt[i].year) {
         case 1:
@@ -254,9 +241,8 @@ void print(Class strt[], FILE *fP, int i) {
             strcpy(yearText, "No year...");
     }
 
-    fprintf(fP, "%-10s", yearText);
-    fprintf(fP, "%-4s", strt[i].day);
-    fprintf(fP, "%2s", strt[i].time);
-    fprintf(fP, "\n");
+    fprintf(fp, "%-10s", yearText);
+    fprintf(fp, "%-4s", strt[i].day);
+    fprintf(fp, "%2s", strt[i].time);
+    fprintf(fp, "\n");
 }
-
