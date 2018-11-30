@@ -52,6 +52,7 @@ void sortTime(Class strt[], int size) {
     char header[160] = "\n\nClasses for selected start time and day\n----------------------------------\n";
     char time[10];
     char day[10];
+    char temp[10];
     char *token;
     int i=0, j, x=0;
 
@@ -72,6 +73,19 @@ void sortTime(Class strt[], int size) {
     printf("Which start time? [hhmm dd]: ");
     scanf("%s", time);
 		scanf("%s", day);
+
+    // adjusting input if day is a number and swap it.
+    if (day[0]>48 && day[0]<57) {
+
+        printf("in the if statement...");
+
+        strcpy(temp, day);
+        strcpy(day, time);
+        strcpy(time, temp);
+
+        printf("day: %s\n", day);
+        printf("time: %s\n", time);
+    }
 
     // Printing Header
     fprintf(fp, "%s", header);
