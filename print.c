@@ -16,7 +16,6 @@ void sortClassNumber(Class strt[], int size) {
             }
         }
     }
-		printf("%d\n", size);
     printFile(strt, size, header, "print");
 }
 
