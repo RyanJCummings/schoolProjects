@@ -1,3 +1,11 @@
+/*  Program 2, CSCI112
+ *  Ryan Cummings, Dennis Pongratz
+ *
+ *  This program reads a file containing a list of classes offered by the MSU
+ *  Computer Science department.  It prints a menu asking the user to specify methods
+ *  of sorting and printing the list and prints the sorted list to an output file.
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "structure.h"
@@ -7,16 +15,14 @@ int main(int argc, char **argv){
   Class class_array[20];
 
   int answer=0;
-  int size = 13;
 
-  readFile(class_array, size);
+  int size = readFile(class_array); // returns the number of structs in the array.
 
-  // creating a new file to write
+  // creates a new output file.
   FILE * fP;
   fP = fopen("output.txt", "w");
   fclose(fP);
 
-  //read_file(in_file, class_array);
   do {
       answer = printMenu();
 

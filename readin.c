@@ -3,22 +3,20 @@
 #include <stdlib.h>
 #include "structure.h"
 
-void readFile(Class class_array[], int size) {
+// Reads the input file and parses line by line into an array of Class structs
+int readFile(Class class_array[]) {
 
     char line[80];
     char *token;
-    int i=0;
-    FILE *fP;
+    int i = 0;
+    FILE *fp;
 
-    if ((fP = fopen("classes.txt", "r")) == NULL){
+    if ((fp = fopen("classes.txt", "r")) == NULL){
         printf("Error opening file\n");
         exit(1);
-    }
+    } else {
 
-    while(i<=size) {                        // just using the known number of lines...
-
-        fgets(line, 80, fP);
-
+    while(fgets(line, 79, fp) != NULL) {
         // first token
         token = strtok(line, " ");
         strcpy(class_array[i].course_num, token);
@@ -42,7 +40,8 @@ void readFile(Class class_array[], int size) {
 
         i++;
     }
+	}
 
-    fclose(fP);
-
+    fclose(fp);
+		return i;
 }

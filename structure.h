@@ -1,3 +1,5 @@
+//  Header file containing the struct and all the functions used in the program
+
 #include <stdio.h>
 
 typedef struct {
@@ -8,12 +10,8 @@ typedef struct {
   int year;
 } Class;
 
-void classes_by_number();
-void classes_by_day();
-void classes_by_time();
-void classes_by_year();
 int printMenu();
-void readFile(Class class_array[], int size);
+int readFile(Class class_array[]);
 void sortClassNumber(Class strt[], int size);
 void sortWeekday(Class str[], int size);
 void sortTime(Class strt[], int size);
