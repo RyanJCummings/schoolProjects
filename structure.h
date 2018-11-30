@@ -14,10 +14,12 @@ void classes_by_time();
 void classes_by_year();
 int printMenu();
 int read_file(FILE *in_file, Class class_array[]);
+void readFileTest(Class class_array[], int size);
 
-void sortClassNumber(Class strt[]);
-void sortWeekday(Class str[]);
-void sortTime(Class strt[]);
-void sortYear(Class strt[]);
+void sortClassNumber(Class strt[], int size);
+void sortWeekday(Class str[], int size);
+void sortTime(Class strt[], int size);
+void sortYear(Class strt[], int size);
 void Swap(Class *a, Class *b);
-void printFile(Class strt[], char *filename);
+void printFile(Class strt[], int size, char header[], char days[]);
+void print(Class strt[], FILE *fP, int i);

@@ -11,30 +11,44 @@ int main(int argc, char **argv){
   FILE *in_file;                 //
   Class class_array[20];
 
-  int answer;
+  int answer=0;
+  int size = 13;
 
-  read_file(in_file, class_array);
+  readFileTest(class_array, size);
+  //printFile(class_array, size);
+
+  // creating a new file to write
+  FILE * fP;
+  fP = fopen("output.txt", "w");
+  fclose(fP);
+
+  //read_file(in_file, class_array);
+  while (answer !=5) {
       answer = printMenu();
-			do {
+	do {
       if (answer == 1){
         // print all classes by CSCI number
-        sortClassNumber(class_array);
-        printFile(class_array, filename);
+        sortClassNumber(class_array, size);
       } else if (answer == 2){
         // print classes by day/time group
+        sortWeekday(class_array, size);
       } else if (answer == 3){
         // print classes by time
+        sortTime(class_array, size);
       } else if (answer == 4){
         // print classes by availablity per year in school
+        sortYear(class_array, size);
       } else if (answer == 5){
         // exit with no errors
         return 0;
       } else {
         // invalid response
-				printf("Sorry that is not a valid response\n");
+		printf("Sorry that is not a valid response\n");
         exit(0);
       }
-		} while(answer != 5);
+	    } while(answer != 5);
+
+  }
 
   // exit with no errors
   return 0;
@@ -50,6 +64,7 @@ int printMenu(){
   printf("4) Print classes available to freshmen, sophomores, juniors, or seniors\n");
   printf("5) Quit\n");
   scanf("%d", &response);
+
 
   return response;
 }
