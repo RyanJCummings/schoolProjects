@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include "structure.h"
 
-typedef enum {false, true} Bool;
-
 int main(int argc, char **argv){
 
   Class class_array[20];
@@ -12,7 +10,6 @@ int main(int argc, char **argv){
   int size = 13;
 
   readFile(class_array, size);
-  //printFile(class_array, size);
 
   // creating a new file to write
   FILE * fP;
@@ -20,9 +17,9 @@ int main(int argc, char **argv){
   fclose(fP);
 
   //read_file(in_file, class_array);
+  do {
+      answer = printMenu();
 
-	do {
-			answer = printMenu();
       if (answer == 1){
         // print all classes by CSCI number
         sortClassNumber(class_array, size);
@@ -40,10 +37,12 @@ int main(int argc, char **argv){
         	return 0;
       } else {
         // invalid response
-				printf("Sorry that is not a valid response\n");
+        printf("Sorry that is not a valid response\n");
         exit(0);
-				}
-	    } while(answer != 5);
+      }
+  } while(answer != 5);
+
+
 
   // exit with no errors
   return 0;
@@ -58,8 +57,8 @@ int printMenu(){
   printf("3) Print the class available at a specific time\n");
   printf("4) Print classes available to freshmen, sophomores, juniors, or seniors\n");
   printf("5) Quit\n");
+  printf("Selection [Number]: ");
   scanf("%d", &response);
-
 
   return response;
 }
