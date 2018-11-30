@@ -2,4 +2,16 @@
 
 Sortet bei Class Number
 ----------------------------------
-
+Joy and Beauty of Computing                    CSCI107  avialable for Freshman   MWF 1000-1050
+Programming in C                               CSCI112  avialable for Sophomore  MWF 0900-0950
+Joy and Beauty of Data                         CSCI127  avialable for Freshman   MWF 1200-1250
+Intro to Data Structures                       CSCI132  avialable for Freshman   TR  1100-1150
+Social and Ethical Issues in Computer Science  CSCI215  avialable for Sophomore  TR  1300-1350
+Data Structures and Algorithms                 CSCI232  avialable for Sophomore  MWF 1100-1150
+Discrete Structures                            CSCI246  avialable for Sophomore  MWF 1300-1350
+Programming Languages                          CSCI305  avialable for Junior     TR  1200-1250
+Computational Theory                           CSCI338  avialable for Junior     TR  1000-1050
+System Administration                          CSCI351  avialable for Junior     TR  1500-1550
+Artificial Intelligence                        CSCI446  avialable for Senior     TR  0900-0950
+Machine Learning                               CSCI447  avialable for Senior     MWF 1400-1450
+Compilers                                      CSCI468  avialable for Senior     TR  1400-1450
