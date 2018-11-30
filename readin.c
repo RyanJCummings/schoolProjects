@@ -73,6 +73,7 @@ void readFileTest(Class class_array[], int size) {
         token = strtok(NULL, " ");
         class_array[i].year = (int)*token -48;
 
+        /*
         printf("\nThis is the structure: \n");
         printf("------------------------------\n");
         printf("Course: %s\n", class_array[i].course_num);
@@ -82,6 +83,7 @@ void readFileTest(Class class_array[], int size) {
         printf("Year: %d\n\n", class_array[i].year);
 
         printf("i: %d\n", i);
+        */
         i++;
 
 

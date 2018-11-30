@@ -6,9 +6,9 @@ typedef enum {false, true} Bool;
 
 int main(int argc, char **argv){
 
-  char *filename = argv[1];
+  //char *filename = argv[1];
 
-  FILE *in_file;                 //
+  //FILE *in_file;                 //
   Class class_array[20];
 
   int answer=0;
