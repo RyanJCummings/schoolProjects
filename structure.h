@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 
+
 typedef struct {
   char course_num[20];
   char title[50];
