@@ -31,7 +31,8 @@ void sortWeekday(Class strt[], int size) {
 
     printf("Show classes on MWF or TR? [MWF/TR]: ");
     scanf("%s", ans);
-    if (strcmp(ans, "MWF")!=0 || strcmp(ans, "TR")!=0) {
+
+    if (strcmp(ans, "MWF")!=0 && strcmp(ans, "TR")!=0) {
         printf("Wrong input!\n");
         exit(1);
     }
@@ -174,14 +175,36 @@ void Swap(Class *a, Class *b) {
 
 // function for printing data
 void print(Class strt[], FILE *fP, int i) {
-    fprintf(fP, "%s", strt[i].title);
-    fprintf(fP, "%s", " ");
-    fprintf(fP, "%s", strt[i].course_num);
-    fprintf(fP, "%s", " ");
-    fprintf(fP, "%d", strt[i].year);
-    fprintf(fP, "%s", " ");
-    fprintf(fP, "%s", strt[i].day);
-    fprintf(fP, "%s", " ");
-    fprintf(fP, "%s", strt[i].time);
+    char yearText[30];
+
+    fprintf(fP, "%-47s", strt[i].title);
+    //fprintf(fP, "%s", " ");
+    fprintf(fP, "%-9s", strt[i].course_num);
+    //fprintf(fP, "%s", " ");
+
+    switch (strt[i].year) {
+        case 1:
+            strcpy(yearText, "avialable for Freshman");
+            break;
+        case 2:
+            strcpy(yearText, "avialable for Sophomore");
+            break;
+        case 3:
+            strcpy(yearText, "avialable for Junior");
+            break;
+        case 4:
+            strcpy(yearText, "avialable for Senior");
+            break;
+        default:
+            strcpy(yearText, "No year...");
+            printf("yearText is: %s\n", yearText);
+            printf("strt.year is: ->%d<-\n", strt[i].year);
+    }
+
+    fprintf(fP, "%-25s", yearText);
+    //fprintf(fP, "%s", " ");
+    fprintf(fP, "%-4s", strt[i].day);
+    //fprintf(fP, "%s", " ");
+    fprintf(fP, "%2s", strt[i].time);
     fprintf(fP, "\n");
 }
