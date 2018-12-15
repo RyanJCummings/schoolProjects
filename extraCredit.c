@@ -1,14 +1,15 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
-typedef enum {False, True} bool;
+typedef enum{false, true} bool;
 
 typedef struct {
 	int xx;
   int yy;
   int zz;
   int mm;
-  char nickname[20];
+  char *nickname;
 } address_t;
 
 void readIn(FILE *ptr, address_t list_of_addresses[]);
@@ -24,30 +25,34 @@ int main (int argc, char **argv){
 
 void readIn(FILE *inFile, address_t list_of_addresses[]){
 	int i = 0;
-	char *e = 0;
-	char line[100];
+	//char *e = 0;
+	char line[101];
 	char *tok;
 
 	if(inFile == NULL){
 		perror("File not found");
 	} else {
-		while(e != NULL){
-			e = fgets(line, 100, inFile);
-			printf("%s\n", e);
+		do{
+			fgets(line, 100, inFile);
 			tok = strtok(line, ".");
-			printf("%s\n", tok);
-			list_of_addresses[i].xx = (int)*tok;
+			list_of_addresses[i].xx = atoi(tok);
+			printf("I've entered the while loop");
 
-			tok = strtok(line, ".");
-			list_of_addresses[i].yy = (int)*tok;
-			tok = strtok(line, ".");
-			list_of_addresses[i].zz = (int)*tok;
-			tok = strtok(line, ".");
-			list_of_addresses[i].mm = (int)*tok;
-			char *str = strtok(line, " ");
-			strcpy(list_of_addresses[i].nickname, str);
+			tok = strtok(NULL, ".");
+			list_of_addresses[i].yy = atoi(tok);
+
+			tok = strtok(NULL, ".");
+			list_of_addresses[i].zz = atoi(tok);
+
+			tok = strtok(NULL, " ");
+			list_of_addresses[i].mm = atoi(tok);
+
+			tok = strtok(NULL, " ");
+			list_of_addresses[i].nickname = tok;
+
 			i++;
-		}
+		} while(tok != 0);
+
 		printf("xx: %d\n", list_of_addresses[1].xx);
 		printf("yy: %d\n", list_of_addresses[1].yy);
 		printf("zz: %d\n", list_of_addresses[1].zz);
