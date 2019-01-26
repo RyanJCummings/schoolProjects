@@ -6,9 +6,13 @@ IMPLICIT NONE
 ! Output to console
 
 
-integer :: amount
+integer :: amount, secondAmount, answer
+amount = 4
+secondAmount = 3
 
-READ(*,*)amount
-WRITE(*,*) amount
+answer = mod(amount, secondAmount)
+
+WRITE(*,*)ANSWER
+
 
 END PROGRAM
