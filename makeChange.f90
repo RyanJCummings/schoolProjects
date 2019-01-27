@@ -6,19 +6,52 @@ IMPLICIT NONE
 ! Output to console
 
 
-INTEGER :: i, quarters, nickles, dimes, pennies
-amount = 4
-secondAmount = 3
+INTEGER :: i, quarters, nickels, dimes, pennies
 
-answer = mod(amount, secondAmount)
 
-print("Please enter an integer between 1 and 99.")
+WRITE(*,*) "Please enter an integer between 1 and 99. "
 READ(*,*) i
 
+!Check Quarters
+IF (mod(i, 25) == 0) THEN
+    quarters = (i / 25)
+ELSE
+    DO WHILE(i > 25)
+        i = i - 25
+        quarters = quarters + 1
+    END DO
+END IF
 
+!Check Dimes
+IF (mod(i, 10) == 0) THEN
+    dimes = (i / 10)
+ELSE
+    DO WHILE (i > 10)
+        i = i - 10
+        dimes = dimes + 1
+    END DO
+END IF
 
+!Check Nickels
+IF (mod(i, 5) == 0) THEN
+    nickels = (i / 5)
+ELSE
+    DO WHILE (i > 5)
+        i = i - 5
+        nickels = nickels + 1
+    END DO
+END IF
 
-WRITE(*,*)ANSWER
+!Check Pennies
+DO WHILE (i > 0)
+    i = i - 1
+    pennies = pennies + 1
+END DO
+
+WRITE(*,*) quarters
+WRITE(*,*) dimes
+WRITE(*,*) nickels
+WRITE(*,*) pennies
 
 
 END PROGRAM
