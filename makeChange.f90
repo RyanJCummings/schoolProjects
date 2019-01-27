@@ -6,11 +6,17 @@ IMPLICIT NONE
 ! Output to console
 
 
-integer :: amount, secondAmount, answer
+INTEGER :: i, quarters, nickles, dimes, pennies
 amount = 4
 secondAmount = 3
 
 answer = mod(amount, secondAmount)
+
+print("Please enter an integer between 1 and 99.")
+READ(*,*) i
+
+
+
 
 WRITE(*,*)ANSWER
 
