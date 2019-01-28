@@ -7,7 +7,11 @@ IMPLICIT NONE
 
 
 INTEGER :: i, quarters, nickels, dimes, pennies
-
+i = 0
+quarters = 0
+nickels = 0
+dimes = 0
+pennies = 0
 
 WRITE(*,*) "Please enter an integer between 1 and 99. "
 READ(*,*) i
@@ -46,12 +50,12 @@ END IF
 DO WHILE (i > 0)
     i = i - 1
     pennies = pennies + 1
-END DO
+ END DO
 
-WRITE(*,*) quarters
-WRITE(*,*) dimes
-WRITE(*,*) nickels
-WRITE(*,*) pennies
+WRITE(*,*) quarters, " Quarter"
+WRITE(*,*) dimes, " Dime"
+WRITE(*,*) nickels, " Nickel"
+WRITE(*,*) pennies, " Penny"
 
 
 END PROGRAM
