@@ -19,6 +19,7 @@ READ(*,*) i
 !Check Quarters
 IF (mod(i, 25) == 0) THEN
     quarters = (i / 25)
+    i = 0
 ELSE
     DO WHILE(i > 25)
         i = i - 25
@@ -29,6 +30,7 @@ END IF
 !Check Dimes
 IF (mod(i, 10) == 0) THEN
     dimes = (i / 10)
+    i = 0
 ELSE
     DO WHILE (i > 10)
         i = i - 10
@@ -39,6 +41,7 @@ END IF
 !Check Nickels
 IF (mod(i, 5) == 0) THEN
     nickels = (i / 5)
+    i = 0
 ELSE
     DO WHILE (i > 5)
         i = i - 5
