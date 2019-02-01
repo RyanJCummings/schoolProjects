@@ -55,10 +55,28 @@ DO WHILE (i > 0)
     pennies = pennies + 1
  END DO
 
-WRITE(*,"(I2A10)", ADVANCE='NO') quarters, "Quarters,"
-WRITE(*,"(I2A7)", ADVANCE='NO') dimes, "Dimes,"
-WRITE(*,"(I2A9)", ADVANCE='NO') nickels, "Nickels,"
-WRITE(*,"(I2A9)", ADVANCE='NO') pennies, "Pennies,"
+IF (quarters > 0) Then
+    WRITE(*,"(I2A8)", ADVANCE='NO') quarters, "Quarter"
+END IF
 
+IF(dimes > 0) THEN
+    WRITE(*,"(I2A5)", ADVANCE='NO') dimes, "Dime"
+END IF
 
+IF(nickels > 0) THEN 
+    WRITE(*,"(I2A7)", ADVANCE='NO') nickels, "Nickel" 
+END IF
+
+IF(pennies > 0) THEN
+    WRITE(*,"(I2A6)", ADVANCE='NO') pennies, "Penny" 
+End IF
+
+WRITE(*,*)""
+
+CHARACTER(LEN =8):: DateINFO
+CHARACTER(LEN =4):: Year, Month*2, Day*2
+CHARACTER(LEN=10):: TimeINFO, PrettyTime*12
+CHARACTER(LEN=2):: Hour, Minute, Second*6
+
+DATE_AND_TIME(DateInfo, TimeINFO)
 END PROGRAM
