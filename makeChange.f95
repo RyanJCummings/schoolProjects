@@ -7,10 +7,16 @@ IMPLICIT NONE
 
 
 INTEGER :: i, quarters, nickels, dimes, pennies
-i = 0
+CHARACTER(LEN=8):: DateINFO
+CHARACTER(LEN=4):: Year, Month*2, Day*2
+CHARACTER(LEN=10):: TimeINFO, PrettyTime*1
+CHARACTER(LEN=2):: Hour, Minute, Second*6
+
+CALL DATE_AND_TIME(DateInfo, TimeINFO)
+
 quarters = 0
-nickels = 0
 dimes = 0
+nickels = 0
 pennies = 0
 
 WRITE(*,*) "Please enter an integer between 1 and 99. "
@@ -73,10 +79,4 @@ End IF
 
 WRITE(*,*)""
 
-CHARACTER(LEN =8):: DateINFO
-CHARACTER(LEN =4):: Year, Month*2, Day*2
-CHARACTER(LEN=10):: TimeINFO, PrettyTime*12
-CHARACTER(LEN=2):: Hour, Minute, Second*6
-
-DATE_AND_TIME(DateInfo, TimeINFO)
 END PROGRAM
