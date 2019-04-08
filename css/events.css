@@ -1,0 +1,121 @@
+.fullwidth {
+	height: 500px;
+	width: 100%;
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+#events {
+	background-color: #522809;
+}
+table {
+	background-color: #777578;
+	color: #FFFFFE;
+	border-color: #000000;
+	border-width: 5px;
+}
+@keyframes slider {
+0% {
+	left: 0;
+}
+17% {
+	left: 0;
+}
+20% {
+	left: -100%;
+}
+37% {
+    left: -100%;
+}
+40% {
+	left: -200%;
+}
+57% {
+	left: -200%;
+}
+60% {
+	left: -300%;
+}
+77% {
+	left: -300%;
+}
+80% {
+	left: -400%;
+}
+95% {
+	left: -400%;
+}
+100% {
+	left: 0;
+}
+}
+#slider {
+	overflow: hidden;
+}
+#slider figure img {
+	width: 20%;
+	float: left;
+}
+#slider figure {
+	position: relative;
+	width: 500%;
+	margin: 0;
+	left: 0;
+	text-align: left;
+	font-size: 0;
+	animation: 30s slider infinite; 
+}
+.eventpictures	{
+	background-color: black;
+    height: 194px;
+    width: 246px;
+	float: left;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	Border: 2px;
+	border-style: outset;
+	border-color: gray;
+}
+.eventtext {
+    height: 194px;
+    width: 946px;
+	Border: 2px;
+	border-style: outset;
+	border-color: gray;
+	color: white;
+	text-align: center;
+	font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	list-style: none;
+	font-family: 'Vidaloka', serif;
+}
+.eventlist {
+    list-style: none;
+	padding: 10px 10px 10px 10px;
+	background-color: #171717;
+	opacity: 0.6;
+	border-radius: 10px;
+	
+}
+#Nt {
+	background-image: url("../images/mtop.jpg");
+	background-position: center center;
+	background-size: cover;
+}	
+#Wt {
+	background-image: url("../images/mMtop.jpg");
+	background-position: center center;
+	background-size: cover;
+}
+#ut {
+	background-image: url("../images/mMbot.jpg");
+	background-position: center center;
+	background-size: cover;
+}
+#st {
+	background-image: url("../images/mbot.jpg");
+	background-position: center center;
+	background-size: cover;
+}

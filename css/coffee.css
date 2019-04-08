@@ -1,0 +1,84 @@
+#coffee{
+    background-color: #522809;
+}
+.roasts{
+    float: left;
+    height: 300px;
+    width: 25%;
+    margin: 10px 50px 0px 0px;
+}
+.roasts, .prices{
+    position: relative;
+    left: 120px;
+    top: 23px;
+}
+#parallax_top{
+     background-image: url("../images/roast.jpg");
+}
+#coffee_row, #prices_row, #mid_prices, #flagship, #brewer_row, #atHome{
+    margin: 0px;
+    height: 300px;
+    background-color: rgba(51, 51, 51, 0.5);
+    position: relative;
+}
+#prices_row{
+    height: 150px;
+    top: -10px;
+}
+#mid_prices{
+    height: 150px;
+}
+#flagship{ 
+    bottom: -95px;
+    height: 220px;
+}
+#parallax_mid{
+    background-image: url("../images/morning.jpg");
+}
+#atHome{
+    height: 220px;
+    bottom: -105px;
+}
+#parallax_top, #parallax_mid{
+    height: 800px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.prices, .price{
+    float: left;
+    width: 250px;
+    color: white;
+    font-family: "verdana", sans-serif;
+    text-decoration: none;
+    margin: 0px 100px 0px 0px;
+    position: relative;
+    bottom: 30px;
+}
+.price{
+    text-align: center;
+    margin: 0px;
+}
+.description{
+    margin-top: 2px;
+    position: relative;
+    bottom: 10px;
+}
+#famous, #your_home{
+    padding-top: 20px;
+    text-align: center;
+    color: white;
+    font-family: 'Handlee', cursive;
+    font-size: 30px;
+    letter-spacing: 1px;
+}
+.paragraph{
+    color: white;
+    font-family: 'Handlee', cursive;
+    font-size: 18px;
+    letter-spacing: 1px;
+    padding: 0px 50px 0px 50px;
+}
+
+
