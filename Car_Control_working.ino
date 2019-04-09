@@ -8,9 +8,9 @@ int right = 10;
 int maxForward = 250;
 int slowForward = 210;
 int medForward = 230;
-int maxBackward = 150;
+//int maxBackward = 150;
 int slowBackward = 190;
-int medBackward = 170;
+//int medBackward = 170;
 int off = 100;
 
 //-----------------------------------------------------------------------------------------------------
@@ -74,7 +74,7 @@ void bluetooth()
         Reverse(1);
         break;
 
-      case 5:
+      /*case 5:
         Serial.println("Reverse");
         Reverse(2);
         break;
@@ -82,14 +82,14 @@ void bluetooth()
       case 6:
         Serial.println("Reverse");
         Reverse(3);
-        break;
+        break;*/
 
       case 7:         
         Serial.println("Left");
         LeftTurn(1);
         break;
 
-      case 8:
+      /*case 8:
         Serial.println("Left");
         LeftTurn(2);
         break;
@@ -97,14 +97,14 @@ void bluetooth()
       case 9:
         Serial.println("Left");
         LeftTurn(3);
-        break;
+        break;*/
         
       case 10:                     
         Serial.println("Right");
         RightTurn(1);
         break;
 
-      case 11:
+     /* case 11:
         Serial.println("Right");
         RightTurn(2);
         break;
@@ -112,7 +112,7 @@ void bluetooth()
       case 12:
         Serial.println("Right");
         RightTurn(3);
-        break;
+        break;*/
         
       case 13:                                            
         Serial.println("Stop");
@@ -163,7 +163,7 @@ void Reverse(int whatSpeed)
     analogWrite(left,slowBackward);
     analogWrite(right,slowBackward);
     
-  } else if (whatSpeed == 2){
+  } /*else if (whatSpeed == 2){
     analogWrite(left,medBackward);
     analogWrite(right,medBackward);
     
@@ -171,7 +171,7 @@ void Reverse(int whatSpeed)
     analogWrite(left,maxBackward);
     analogWrite(right,maxBackward);
     
-  } else {
+  } */else {
     Serial.println("Error with Backward control");
   }
 }
@@ -183,7 +183,7 @@ void LeftTurn(int whatSpeed)
     analogWrite(left,slowBackward);
     analogWrite(right,slowForward);
     
-  } else if (whatSpeed == 2){
+  } /*else if (whatSpeed == 2){
     analogWrite(left,medBackward);
     analogWrite(right,medForward);
     
@@ -191,7 +191,7 @@ void LeftTurn(int whatSpeed)
     analogWrite(left,maxBackward);
     analogWrite(right,maxForward);
     
-  } else {
+  } */else {
     Serial.println("Error with Left control");
   }
 }
@@ -203,7 +203,7 @@ void RightTurn(int whatSpeed)
     analogWrite(left,slowForward);
     analogWrite(right,slowBackward);
     
-  } else if (whatSpeed == 2){
+  } /*else if (whatSpeed == 2){
     analogWrite(left,medForward);
     analogWrite(right,medBackward);
     
@@ -211,7 +211,7 @@ void RightTurn(int whatSpeed)
     analogWrite(left,maxForward);
     analogWrite(right,maxBackward);
     
-  } else {
+  } */else {
     Serial.println("Error with Right control");
   }                                                   
 }
