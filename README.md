@@ -12,6 +12,7 @@ The .ino file is for the Arduino. To use, open the file in an Arduino IDE. From 
 
 ## Hardware
 
-This is designed to work with tank steering using Pusle Width Modulation to conrol speed/torque.  A very rough diagram follows.
+This is designed to work with tank steering using Pusle Width Modulation to conrol speed/torque. For this project, an HC-05 Bluetooth Transceiver was used, however an HC-06 Bluetooth Receiver should also work without modification. A very rough diagram follows.
+
 
 ![Diagram](diagram.png)
