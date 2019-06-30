@@ -1,0 +1,141 @@
+#home{
+    background-color: #522809;
+}
+.hero{
+    float:right;
+    background-image: url("../images/705.jpg");
+    background-position: center center;
+    height: 600px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin: 0;
+}
+h1{
+    width: 35%;
+    background-color: #D2B48C;
+    opacity: 0.8;
+    border-radius:10px;
+    padding: 10px 10px 10px 10px;
+    color: #382711;
+    font-family: 'Handlee', cursive;
+    font-size: 40px;
+    text-align: center;
+    position: relative;
+    top: 28%;
+    left: 40%;
+}
+h2{
+    padding-top: 10px;
+    text-align: center;
+    padding-left: 5px;
+    font-family: 'Handlee', cursive;
+    font-size: 28px;
+    margin: 3px 0px 0px 3px;
+    
+}
+
+#address{
+    list-style: none;
+    font-family: "verdana", sans-serif;
+    font-size: 12px;
+}
+.address_list{
+    font-family: "verdana", sans-serif;
+    font-size: 15px;
+    padding: 0px 0px 5px 15px;
+    color: #D2B48C;
+}
+#pumpkinSpice{
+    background-image: url("../images/pumpkin.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#pumpkin_head{
+    width: 70%;
+    background-color: #D2B48C;
+    opacity: 0.8;
+    border-radius:10px;
+    padding: 10px 10px 10px 10px;
+    color: #382711;
+    font-family: 'Handlee', cursive;
+    font-size: 40px;
+    text-align: center;  
+    position: relative;
+    top: 20%;
+    left: 15%;
+}
+#pumpkinContent{
+    background-color: #F2DABB;
+}
+.pumpkin_text{
+    font-family: 'Handlee', cursive;
+    font-size: 15px;
+    color: #382711;
+    text-align: left;
+    padding: 50px 40px 0px 40px;
+}
+#peppermint{
+    background-image: url("../images/peppermint.jpg");
+    background-size: cover;
+    background-position: center center;
+    
+}
+#peppermint_head{
+    margin: 0px 0px 0px 0px;
+    width: 50%;
+    background-color: #D2B48C;
+    opacity: 0.8;
+    border-radius:10px;
+    padding: 10px 10px 10px 10px;
+    color: #382711;
+    font-family: 'Handlee', cursive;
+    font-size: 40px;
+    text-align: center;
+    position: relative;
+    top: 40%;
+    left: 25%;
+}
+#peppermint_content{
+    background-color: #382711;
+}
+.peppermint_text{
+    color: #D2B48C;
+    font-family: 'Handlee', cursive;
+    font-size: 15px;
+    padding: 50px 40px 0px 40px;
+}
+p{
+    letter-spacing: 1px;
+    padding: 10px 15px 10px 15px;
+    font-family: 'Handlee', cursive;
+}
+.locate{
+    background-color: #382711;
+}
+.event{
+    background-color: #6D0000;
+}
+.brew{
+    background-color: #D2B48C;
+}
+#brew_title, #events_title{
+    font-size: 28px;
+    font-family: 'Handlee', cursive;
+}
+#brew_title{
+    color: #382711;
+}
+#location{
+    color: #D2B48C;
+}
+#event_text{
+    color: bisque;
+}
+#event_title{
+    color: bisque;
+}
+.lower_text{
+    font-size: 15px;
+    font-family: "verdana", sans-serif;
+}
