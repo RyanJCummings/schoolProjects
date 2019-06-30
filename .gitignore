@@ -15,12 +15,16 @@
 *.ilk
 *.map
 *.exp
+<<<<<<< HEAD
 >>>>>>> 2cdd2947fcad7b7eb797469b74ae35567c45db1e
+=======
+>>>>>>> 534378617b4d83f63badcdfb5c3058281c08a127
 
 # Precompiled Headers
 *.gch
 *.pch
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 # Compiled Dynamic libraries
 *.so
@@ -37,6 +41,8 @@
 *.a
 *.lib
 =======
+=======
+>>>>>>> 534378617b4d83f63badcdfb5c3058281c08a127
 # Libraries
 *.lib
 *.a
@@ -48,14 +54,20 @@
 *.so
 *.so.*
 *.dylib
+<<<<<<< HEAD
 >>>>>>> 2cdd2947fcad7b7eb797469b74ae35567c45db1e
+=======
+>>>>>>> 534378617b4d83f63badcdfb5c3058281c08a127
 
 # Executables
 *.exe
 *.out
 *.app
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 534378617b4d83f63badcdfb5c3058281c08a127
 *.i*86
 *.x86_64
 *.hex
@@ -74,4 +86,9 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+<<<<<<< HEAD
 >>>>>>> 2cdd2947fcad7b7eb797469b74ae35567c45db1e
+=======
+prog
+program
+>>>>>>> 534378617b4d83f63badcdfb5c3058281c08a127

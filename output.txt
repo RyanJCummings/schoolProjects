@@ -1,0 +1,5 @@
+
+
+Classes for selected start time and day
+----------------------------------
+Data Structures and Algorithms                 CSCI232  Sophomore MWF 1100
