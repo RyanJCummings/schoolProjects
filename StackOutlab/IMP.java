@@ -24,6 +24,7 @@ class IMP implements MouseListener{
     int colorX, colorY;
     int [] pixels;
     int [] results;
+
     //Instance Fields you will be using below
 
     //This will be your height and width of your 2d array
@@ -267,25 +268,39 @@ class IMP implements MouseListener{
      * Look at above fun1() to see how to get the RGB out of the int (getPixelArray)
      * and then put the RGB back to an int (getPixels)
      */
-    private void fun2()
-    {
+
+
+
+    private void fun2() {
         PixelRegion region = new PixelRegion(colorX, colorY);
+        System.out.println("This is the current value of x and y : " + region.x + ", " + region.y);
         Stack<PixelRegion> regionStack = new Stack<>();
+        int[] adjacent;
+        int[] rgbArray = {255, 0, 0, 0}; // array storing rgb values for a black pixel
+        int colorChange = getPixels(rgbArray);
+        int threshold = 40;
+        int[] clickColor = getPixelArray(picture[colorY][colorX]);
+
         regionStack.push(region);
         while(!regionStack.empty()){
             PixelRegion current = regionStack.pop();
-            int [] positions = new int[2];
+            picture[current.y][current.x] = colorChange; // changes the color of the pixel that is popped off the stack
             for (int i = -1; i < 2; i++) {
                 for (int j = -1; j < 2; j++) {
-                    positions = {region.x + i, region.y + j};
-                    if ()
+                    try {
+                        adjacent = getPixelArray(picture[current.y + i][current.x + j]);
+                        if ((adjacent[1] + threshold > clickColor[1] && adjacent[1] - threshold < clickColor[1])
+                                && adjacent[2] + threshold > clickColor[2] && adjacent[2] - threshold < clickColor[2]
+                                && adjacent[3] + threshold > clickColor[3] && adjacent[3] - threshold < clickColor[3]) {
+
+                            regionStack.push(new PixelRegion(current.x + j, current.y + i));
+                        }
+                    } catch (Exception e) {}
                 }
             }
-
         }
+        resetPicture();
     }
-
-
 
 
     private void quit()
